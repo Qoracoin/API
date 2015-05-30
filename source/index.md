@@ -269,6 +269,60 @@ Returns true/false.
 
 `GET http://127.0.0.1:9085/addresses/validate/{address}
 
+## Generate an Address
+
+```shell
+curl -s http://127.0.0.1:9085/addresses/new
+```
+
+Generates a new account and returns the newly generated address.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/addresses/new
+
+
+## Import an Address
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/addresses
+```
+
+Generates a new account and returns the newly generated address.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/addresses/new
+
+## Get Generating Balance
+
+```shell
+curl -s http://127.0.0.1:9085/addresses/generatingbalance/{address}
+```
+
+Return the generating balance of the given address.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/addresses/generatingbalance/{address}
+
+## Get Balance
+
+```shell
+curl -s http://127.0.0.1:9085/addresses/balance/{address}
+```
+
+Return the confirmed balance of the given address.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/addresses/balance/{address}
+
+
+
+
+
+
 
 
 
