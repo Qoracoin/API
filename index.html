@@ -156,7 +156,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/transactions/transactions/address/{address}</p>
+<p>` GET http://127.0.0.1:9085/transactions/transactions/address/{address}</p>
 
 <h2 id="view-{limit}-transactions-for-address">View {Limit} Transactions for Address</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/address/<span class="o">{</span>address<span class="o">}</span>/limit/<span class="o">{</span>limit<span class="o">}</span>
@@ -166,7 +166,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/transactions/transactions/address/{address}/limit/{limit}</p>
+<p>` GET http://127.0.0.1:9085/transactions/transactions/address/{address}/limit/{limit}</p>
 
 <h2 id="view-unconfirmed-transactions">View Unconfirmed Transactions</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/network
@@ -176,7 +176,7 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/transactions/transactions/network</p>
+<p>` GET http://127.0.0.1:9085/transactions/transactions/network</p>
 
 <h2 id="scan-transactions">Scan Transactions</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/scan
@@ -233,7 +233,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/blocks</p>
+<p>` GET http://127.0.0.1:9085/blocks</p>
 
 <h2 id="get-blocks-from-address">Get Blocks From Address</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/address/<span class="o">{</span>address<span class="o">}</span>
@@ -243,7 +243,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/blocks/address/{address}</p>
+<p>` GET http://127.0.0.1:9085/blocks/address/{address}</p>
 
 <h2 id="get-genesis-block">Get Genesis Block</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/first
@@ -253,7 +253,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/first</p>
+<p>` GET http://127.0.0.1:9085/first</p>
 
 <h2 id="get-last-block">Get Last Block</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/last
@@ -263,7 +263,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/last</p>
+<p>` GET http://127.0.0.1:9085/last</p>
 
 <h2 id="get-block-time">Get Block Time</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/time
@@ -273,7 +273,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/time</p>
+<p>` GET http://127.0.0.1:9085/time</p>
 
 <h2 id="get-block-height">Get Block Height</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/height
@@ -283,7 +283,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/height</p>
+<p>` GET http://127.0.0.1:9085/height</p>
 
 <h1 id="addresses">Addresses</h1>
 
@@ -295,7 +295,7 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/addresses</p>
+<p>` GET http://127.0.0.1:9085/addresses</p>
 
 <h2 id="validate-an-address">Validate an Address</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/validate/<span class="o">{</span>address<span class="o">}</span>
@@ -306,7 +306,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/addresses/validate/{address}</p>
+<p>` GET http://127.0.0.1:9085/addresses/validate/{address}</p>
 
 <h2 id="generate-an-address">Generate an Address</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/new
@@ -316,7 +316,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/addresses/new</p>
+<p>` GET http://127.0.0.1:9085/addresses/new</p>
 
 <h2 id="import-an-address">Import an Address</h2>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/addresses
@@ -326,7 +326,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/addresses/new</p>
+<p>` POST http://127.0.0.1:9085/addresses/new</p>
 
 <h2 id="get-generating-balance">Get Generating Balance</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/generatingbalance/<span class="o">{</span>address<span class="o">}</span>
@@ -336,7 +336,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/addresses/generatingbalance/{address}</p>
+<p>` GET http://127.0.0.1:9085/addresses/generatingbalance/{address}</p>
 
 <h2 id="get-balance">Get Balance</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/balance/<span class="o">{</span>address<span class="o">}</span>
@@ -346,7 +346,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/addresses/balance/{address}</p>
+<p>` GET http://127.0.0.1:9085/addresses/balance/{address}</p>
 
 <h1 id="wallet">Wallet</h1>
 
@@ -358,7 +358,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/wallet</p>
+<p>` GET http://127.0.0.1:9085/wallet</p>
 
 <h2 id="syncronize-wallet">Syncronize Wallet</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/wallet/sesynchronizeed
@@ -368,7 +368,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/wallet/seed</p>
+<p>` GET http://127.0.0.1:9085/wallet/seed</p>
 
 <h2 id="sync-wallet">Sync Wallet</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/synchronize
@@ -378,7 +378,7 @@ Returns true/false.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/synchronize</p>
+<p>` GET http://127.0.0.1:9085/synchronize</p>
 
 <h2 id="lock-wallet">Lock Wallet</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/lock
@@ -391,7 +391,7 @@ Returns true/false.</p>
 <p>Locks the wallet.
 Returns true/false depending on the fact if the wallet was already locked and if the password was correct.</p>
 
-<p>`GET http://127.0.0.1:9085/lock</p>
+<p>` GET http://127.0.0.1:9085/lock</p>
 
 <h2 id="create-a-wallet">Create a Wallet</h2>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet
@@ -408,7 +408,7 @@ Returns true/false depending on the fact if the wallet was already locked and if
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/wallet</p>
+<p>` POST http://127.0.0.1:9085/wallet</p>
 
 <h2 id="unlock-wallet">Unlock Wallet</h2>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet/unlock
@@ -419,7 +419,7 @@ Returns true/false depending on the fact if the password is correct.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/wallet/unlock</p>
+<p>` POST http://127.0.0.1:9085/wallet/unlock</p>
 
 <h1 id="payment">Payment</h1>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/payment
@@ -437,7 +437,7 @@ Returns the transaction in JSON when successful.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/payment</p>
+<p>` POST http://127.0.0.1:9085/payment</p>
 
 <h1 id="names">Names</h1>
 
@@ -459,7 +459,7 @@ Returns the transaction in JSON when successful.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/names/address/{address}</p>
+<p>` GET http://127.0.0.1:9085/names/address/{address}</p>
 
 <h2 id="get-name-details">Get Name Details</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
@@ -469,7 +469,7 @@ Returns the transaction in JSON when successful.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`GET http://127.0.0.1:9085/names/{name}</p>
+<p>` GET http://127.0.0.1:9085/names/{name}</p>
 
 <h2 id="register-name">Register Name</h2>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names
@@ -487,7 +487,7 @@ Returns the transaction in JSON when successful.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/names</p>
+<p>` POST http://127.0.0.1:9085/names</p>
 
 <h2 id="update-name">Update Name</h2>
 <pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
@@ -504,7 +504,7 @@ Returns the transaction in JSON when successful.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p>`POST http://127.0.0.1:9085/names/{name}</p>
+<p>` POST http://127.0.0.1:9085/names/{name}</p>
 
       </div>
       <div class="dark-box">
