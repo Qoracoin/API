@@ -466,3 +466,43 @@ Returns details about the given name
 ### HTTP Request
 
 `GET http://127.0.0.1:9085/names/{name}
+
+## Register Name
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/names
+```
+```json
+{
+"name":"qora",
+"value":"http://qora.org",
+"registrant":"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",
+"fee":"1.00001"
+}
+```
+Register a new name.
+Returns the transaction in JSON when successful.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/names
+
+## Update Name
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/names/{name}
+```
+```json
+{
+"newvalue":"http://qora.net",
+"newowner":"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",
+"fee":"1.00001"
+}
+```
+Updates an existing name.
+Returns the transaction in JSON when successful.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/names/{name}
+
