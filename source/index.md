@@ -455,3 +455,14 @@ Returns an array of all the names owned by a specific address in your wallet.
 
 `GET http://127.0.0.1:9085/names/address/{address}
 
+## Get Name Details
+
+```shell
+curl -s http://127.0.0.1:9085/names/{name}
+```
+
+Returns details about the given name
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/names/{name}
