@@ -156,6 +156,71 @@
 
 <p>`GET http://127.0.0.1:9085/transactions/transactions/address/{address}</p>
 
+<h2 id="view-{limit}-transactions-for-address">View {Limit} Transactions for Address</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/address/<span class="o">{</span>address<span class="o">}</span>/limit/<span class="o">{</span>limit<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of the last {limit} transactions of a specific address in your wallet.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/transactions/transactions/address/{address}/limit/{limit}</p>
+
+<h2 id="view-unconfirmed-transactions">View Unconfirmed Transactions</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/network
+</code></pre>
+
+<p>Returns an array of all the unconfirmed transactions known to the client.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/transactions/transactions/network</p>
+
+<h2 id="scan-transactions">Scan Transactions</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/scan
+</code></pre>
+
+<p>Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.
+Return the last block it scanned, the amount of blocks it scanned and the scanned transactions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://127.0.0.1:9085/qora/scan</code></p>
+
+<h3 id="filters">Filters</h3>
+
+<table><thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>The signature of the starting block.</td>
+</tr>
+<tr>
+<td>blocklimit</td>
+<td>The maximum amount of blocks to scan.</td>
+</tr>
+<tr>
+<td>transactionlimit</td>
+<td>The maximum amount of transactions to return.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Only return transactions with the given type.</td>
+</tr>
+<tr>
+<td>service</td>
+<td>Only return Arbitrary Transactions with the given service.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Only return transactions where the given address is involved.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
       </div>
