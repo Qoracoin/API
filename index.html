@@ -439,6 +439,28 @@ Returns the transaction in JSON when successful.</p>
 
 <p>`POST http://127.0.0.1:9085/payment</p>
 
+<h1 id="names">Names</h1>
+
+<h2 id="get-names">Get Names</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names
+</code></pre>
+
+<p>Returns an array of all the names owned by your accounts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/names</code></p>
+
+<h2 id="get-names-by-address">Get Names by Address</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names/address/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of all the names owned by a specific address in your wallet.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/names/address/{address}</p>
+
       </div>
       <div class="dark-box">
       </div>
