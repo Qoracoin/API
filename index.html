@@ -393,6 +393,34 @@ Returns true/false depending on the fact if the wallet was already locked and if
 
 <p>`GET http://127.0.0.1:9085/lock</p>
 
+<h2 id="create-a-wallet">Create a Wallet</h2>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"seed"</span><span class="p">:</span><span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"cookies"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"recover"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="s2">"amount"</span><span class="p">:</span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/wallet</p>
+
+<h2 id="unlock-wallet">Unlock Wallet</h2>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet/unlock
+</code></pre>
+
+<p>Unlocks the wallet using the given password.
+Returns true/false depending on the fact if the password is correct.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/wallet/unlock</p>
+
       </div>
       <div class="dark-box">
       </div>
