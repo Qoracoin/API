@@ -218,5 +218,44 @@ Returns the last block.
 
 `GET http://127.0.0.1:9085/last
 
+## Get Block Time
+
+```shell
+curl -s http://127.0.0.1:9085/blocks/time
+```
+
+Returns the time it should take to generate a block.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/time
+
+## Get Block Height
+
+```shell
+curl -s http://127.0.0.1:9085/blocks/height
+```
+
+Returns the last blocks height.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/height
+
+#Addresses
+
+## Get Your Addresses
+
+```shell
+curl -s http://127.0.0.1:9085/addresses
+```
+
+Returns an array of all the addresses in your wallet.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/addresses
+
+
 
 
