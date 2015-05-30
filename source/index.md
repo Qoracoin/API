@@ -256,6 +256,20 @@ Returns an array of all the addresses in your wallet.
 
 `GET http://127.0.0.1:9085/addresses
 
+## Validate an Address
+
+```shell
+curl -s http://127.0.0.1:9085/addresses/validate/{address}
+```
+
+Validates the given address.
+Returns true/false.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/addresses/validate/{address}
+
+
 
 
 
