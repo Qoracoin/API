@@ -5,6 +5,8 @@ search: true
 ---
 # Qora
 
+This is a list of MOST api calls, this is not a full list.  For refrence, please see https://docs.google.com/document/d/1uBN8JXYNAWb8NUxon7MKx2MSJs4HHekIgolIXGTwR4c/
+
 ## Stop Qora
 
 ```shell
