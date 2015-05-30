@@ -408,3 +408,23 @@ Returns true/false depending on the fact if the password is correct.
 
 `POST http://127.0.0.1:9085/wallet/unlock
 
+#Payment
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/payment
+```
+```json
+{
+"amount":"10.05",
+"fee":"1.000001",
+"sender":"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM",
+"recipient":"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"
+}
+```
+
+Send a new payment using the given data.
+Returns the transaction in JSON when successful.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/payment
