@@ -146,6 +146,16 @@
 
 <p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/limit/{limit}</code></p>
 
+<h2 id="view-transactions-for-address">View Transactions for Address</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/address/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of the last 50 transactions of a specific address in your wallet.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/transactions/transactions/address/{address}</p>
+
       </div>
       <div class="dark-box">
       </div>
