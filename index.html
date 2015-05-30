@@ -102,6 +102,28 @@
 </tr>
 </tbody></table>
 
+<h1 id="seed">Seed</h1>
+
+<p>To generate a random base58 encoded seed. These seeds can be used to create a wallet or to import an account.</p>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/seed/<span class="o">{</span>length<span class="o">}</span>
+</code></pre>
+
+<p>Returns a base58 encoded random seed of 32 bytes. Use the optional parameter length to request a seed of {length}bytes.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/seed/{length}</code></p>
+
+<h1 id="peers">Peers</h1>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/peers
+</code></pre>
+
+<p>Returns an array of all the IP’s of the peers to which the application is currently connected.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/peers</code></p>
+
       </div>
       <div class="dark-box">
       </div>
