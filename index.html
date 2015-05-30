@@ -471,6 +471,41 @@ Returns the transaction in JSON when successful.</p>
 
 <p>`GET http://127.0.0.1:9085/names/{name}</p>
 
+<h2 id="register-name">Register Name</h2>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"http://qora.org"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"registrant"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Register a new name.
+Returns the transaction in JSON when successful.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/names</p>
+
+<h2 id="update-name">Update Name</h2>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"newvalue"</span><span class="p">:</span><span class="s2">"http://qora.net"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"newowner"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates an existing name.
+Returns the transaction in JSON when successful.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/names/{name}</p>
+
       </div>
       <div class="dark-box">
       </div>
