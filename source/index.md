@@ -428,3 +428,30 @@ Returns the transaction in JSON when successful.
 ### HTTP Request
 
 `POST http://127.0.0.1:9085/payment
+
+#Names
+
+## Get Names
+
+```shell
+curl -s http://127.0.0.1:9085/names
+```
+
+Returns an array of all the names owned by your accounts.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/names`
+
+## Get Names by Address
+
+```shell
+curl -s http://127.0.0.1:9085/names/address/{address}
+```
+
+Returns an array of all the names owned by a specific address in your wallet.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/names/address/{address}
+
