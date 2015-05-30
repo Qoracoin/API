@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Qora API Reference
 
 search: true
 ---
@@ -320,12 +320,58 @@ Return the confirmed balance of the given address.
 
 `GET http://127.0.0.1:9085/addresses/balance/{address}
 
+#Wallet
+
+## Get Wallet Info 
+
+```shell
+curl -s http://127.0.0.1:9085/wallet
+```
+
+Returns general information about the wallet.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/wallet
 
 
+## Syncronize Wallet 
 
+```shell
+curl -s http://127.0.0.1:9085/wallet/sesynchronizeed
+```
 
+Return the 32-byte long base58-encoded wallet seed.
 
+### HTTP Request
 
+`GET http://127.0.0.1:9085/wallet/seed
 
+## Sync Wallet 
+
+```shell
+curl -s http://127.0.0.1:9085/synchronize
+```
+
+Rescans the blockchain for data.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/synchronize
+
+## Lock Wallet 
+
+```shell
+curl -s http://127.0.0.1:9085/lock
+```
+
+Rescans the blockchain for data.
+
+### HTTP Request
+
+Locks the wallet.
+Returns true/false depending on the fact if the wallet was already locked and if the password was correct.
+
+`GET http://127.0.0.1:9085/lock
 
 
