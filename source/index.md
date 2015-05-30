@@ -24,13 +24,13 @@ This example API documentation page was created with [Slate](http://github.com/t
 curl -s http://127.0.0.1:9085/qora/stop
 ```
 
-This endpoint retrieves all kittens.
+This command will peacefully stop the Qora daemon.  It does not return anything.
 
 ### HTTP Request
 
 `GET http://127.0.0.1:9085/qora/stop`
 
-## Get Status
+## Get Qora's Status
 
 ```shell
 curl -s http://127.0.0.1:9085/qora/status
@@ -47,4 +47,25 @@ Status | Value
 0 | No connections
 1 | Synchronizing
 2 | oke
+
+
+## Check if Qora is up to date
+
+```shell
+curl -s http://127.0.0.1:9085/qora/isuptodate
+```
+
+Returns a boolean that shows if the application is synchronized with the network.
+
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/qora/isuptodate`
+
+### Return Values
+
+Status | Value
+--------- | -----------
+0 | Is not up to date
+1 | Is up to date
 
