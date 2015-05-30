@@ -119,5 +119,54 @@ Returns an array of the last 50 transactions of a specific address in your walle
 
 `GET http://127.0.0.1:9085/transactions/transactions/address/{address}
 
+## View {Limit} Transactions for Address
+
+```shell
+curl -s http://127.0.0.1:9085/transactions/address/{address}/limit/{limit}
+```
+
+Returns an array of the last {limit} transactions of a specific address in your wallet.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/transactions/transactions/address/{address}/limit/{limit}
+
+## View Unconfirmed Transactions
+
+```shell
+curl -s http://127.0.0.1:9085/transactions/network
+```
+
+Returns an array of all the unconfirmed transactions known to the client.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/transactions/transactions/network
+
+## Scan Transactions
+
+```shell
+curl -s http://127.0.0.1:9085/qora/scan
+```
+
+Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.
+Return the last block it scanned, the amount of blocks it scanned and the scanned transactions.
+
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/qora/scan`
+
+### Filters
+
+Filter | Description
+--------- | -----------
+start | The signature of the starting block.
+blocklimit | The maximum amount of blocks to scan.
+transactionlimit | The maximum amount of transactions to return.
+type | Only return transactions with the given type.
+service | Only return Arbitrary Transactions with the given service.
+address | Only return transactions where the given address is involved.
+
 
 
