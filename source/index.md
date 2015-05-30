@@ -374,4 +374,37 @@ Returns true/false depending on the fact if the wallet was already locked and if
 
 `GET http://127.0.0.1:9085/lock
 
+## Create a Wallet
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/wallet
+```
+```json
+{
+"seed":"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz",
+"password":"cookies",
+"recover":false,
+"amount":10
+}
+```
+
+Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/wallet
+
+
+## Unlock Wallet
+
+```shell
+curl -X POST -s http://127.0.0.1:9085/wallet/unlock
+```
+
+Unlocks the wallet using the given password.
+Returns true/false depending on the fact if the password is correct.
+
+### HTTP Request
+
+`POST http://127.0.0.1:9085/wallet/unlock
 
