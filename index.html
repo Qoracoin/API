@@ -306,6 +306,46 @@ Returns true/false.</p>
 
 <p>`GET http://127.0.0.1:9085/addresses/validate/{address}</p>
 
+<h2 id="generate-an-address">Generate an Address</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/new
+</code></pre>
+
+<p>Generates a new account and returns the newly generated address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/addresses/new</p>
+
+<h2 id="import-an-address">Import an Address</h2>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/addresses
+</code></pre>
+
+<p>Generates a new account and returns the newly generated address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/addresses/new</p>
+
+<h2 id="get-generating-balance">Get Generating Balance</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/generatingbalance/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Return the generating balance of the given address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/addresses/generatingbalance/{address}</p>
+
+<h2 id="get-balance">Get Balance</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/balance/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Return the confirmed balance of the given address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/addresses/balance/{address}</p>
+
       </div>
       <div class="dark-box">
       </div>
