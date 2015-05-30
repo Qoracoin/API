@@ -295,6 +295,17 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 
 <p>`GET http://127.0.0.1:9085/addresses</p>
 
+<h2 id="validate-an-address">Validate an Address</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/validate/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Validates the given address.
+Returns true/false.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/addresses/validate/{address}</p>
+
       </div>
       <div class="dark-box">
       </div>
