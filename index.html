@@ -124,6 +124,28 @@
 
 <p><code class="prettyprint">GET http://127.0.0.1:9085/peers</code></p>
 
+<h1 id="transactions">Transactions</h1>
+
+<h2 id="view-transactions">View Transactions</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions
+</code></pre>
+
+<p>Returns an array of your accounts each with their 50 last transactions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions</code></p>
+
+<h2 id="view-transactions-(limit)">View Transactions (Limit)</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/limit/<span class="o">{</span>limit<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of your accounts each with their {limit} last transactions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/limit/{limit}</code></p>
+
       </div>
       <div class="dark-box">
       </div>
