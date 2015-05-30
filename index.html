@@ -421,6 +421,24 @@ Returns true/false depending on the fact if the password is correct.</p>
 
 <p>`POST http://127.0.0.1:9085/wallet/unlock</p>
 
+<h1 id="payment">Payment</h1>
+<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/payment
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"10.05"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.000001"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Send a new payment using the given data.
+Returns the transaction in JSON when successful.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`POST http://127.0.0.1:9085/payment</p>
+
       </div>
       <div class="dark-box">
       </div>
