@@ -56,3 +56,30 @@ Status | Value
 0 | Is not up to date
 1 | Is up to date
 
+# Seed
+
+To generate a random base58 encoded seed. These seeds can be used to create a wallet or to import an account.
+
+```shell
+curl -s http://127.0.0.1:9085/seed/{length}
+```
+Returns a base58 encoded random seed of 32 bytes. Use the optional parameter length to request a seed of {length}bytes.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/seed/{length}`
+
+#Peers
+
+```shell
+curl -s http://127.0.0.1:9085/peers
+```
+
+Returns an array of all the IP’s of the peers to which the application is currently connected.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/peers`
+
+
+
