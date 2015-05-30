@@ -107,7 +107,17 @@ Returns an array of your accounts each with their {limit} last transactions.
 
 `GET http://127.0.0.1:9085/transactions/limit/{limit}`
 
+## View Transactions for Address
 
+```shell
+curl -s http://127.0.0.1:9085/transactions/address/{address}
+```
+
+Returns an array of the last 50 transactions of a specific address in your wallet.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/transactions/transactions/address/{address}
 
 
 
