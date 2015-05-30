@@ -46,13 +46,13 @@
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/stop
 </code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>This command will peacefully stop the Qora daemon.  It does not return anything.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET http://127.0.0.1:9085/qora/stop</code></p>
 
-<h2 id="get-status">Get Status</h2>
+<h2 id="get-qora&#39;s-status">Get Qora&rsquo;s Status</h2>
 <pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/status
 </code></pre>
 
@@ -79,6 +79,34 @@
 <tr>
 <td>2</td>
 <td>oke</td>
+</tr>
+</tbody></table>
+
+<h2 id="check-if-qora-is-up-to-date">Check if Qora is up to date</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/isuptodate
+</code></pre>
+
+<p>Returns a boolean that shows if the application is synchronized with the network.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://127.0.0.1:9085/qora/isuptodate</code></p>
+
+<h3 id="return-values">Return Values</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Is not up to date</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Is up to date</td>
 </tr>
 </tbody></table>
 
