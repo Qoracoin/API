@@ -81,5 +81,33 @@ Returns an array of all the IP’s of the peers to which the application is curr
 
 `GET http://127.0.0.1:9085/peers`
 
+#Transactions
+
+## View Transactions
+
+```shell
+curl -s http://127.0.0.1:9085/transactions
+```
+
+Returns an array of your accounts each with their 50 last transactions.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/transactions`
+
+## View Transactions (Limit)
+
+```shell
+curl -s http://127.0.0.1:9085/transactions/limit/{limit}
+```
+
+Returns an array of your accounts each with their {limit} last transactions.
+
+### HTTP Request
+
+`GET http://127.0.0.1:9085/transactions/limit/{limit}`
+
+
+
 
 
