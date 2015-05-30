@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Qora API Reference</title>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -347,6 +347,51 @@ Returns true/false.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p>`GET http://127.0.0.1:9085/addresses/balance/{address}</p>
+
+<h1 id="wallet">Wallet</h1>
+
+<h2 id="get-wallet-info">Get Wallet Info</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/wallet
+</code></pre>
+
+<p>Returns general information about the wallet.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/wallet</p>
+
+<h2 id="syncronize-wallet">Syncronize Wallet</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/wallet/sesynchronizeed
+</code></pre>
+
+<p>Return the 32-byte long base58-encoded wallet seed.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/wallet/seed</p>
+
+<h2 id="sync-wallet">Sync Wallet</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/synchronize
+</code></pre>
+
+<p>Rescans the blockchain for data.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>`GET http://127.0.0.1:9085/synchronize</p>
+
+<h2 id="lock-wallet">Lock Wallet</h2>
+<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/lock
+</code></pre>
+
+<p>Rescans the blockchain for data.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p>Locks the wallet.
+Returns true/false depending on the fact if the wallet was already locked and if the password was correct.</p>
+
+<p>`GET http://127.0.0.1:9085/lock</p>
 
       </div>
       <div class="dark-box">
