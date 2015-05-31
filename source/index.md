@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Qora API
 
 toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
@@ -988,7 +988,7 @@ Returns the transaction in JSON when successful.
 
 # Response Objects  
 
-```Generic information ```
+``````Generic information ``````
 
 ## Transaction Type 1
 
@@ -1064,6 +1064,9 @@ Update name transaction
             "reference":"42npsTYYydk798VwtJg4a5JR2g39FC2ASEHPhdYr4x2jq6eLw1au2mjc2gxmvghsPojEmhaEreksj174rw4Uthbg",            "signature":"5s2fqKKnAa8cVkYVng3aF2SqxkKE1ArWKyUwBsTRz5tqRP6RfQXzcA6SNbaXNgGH4T62oh9QaXoB4xbASemHRSGV"
 }
 ```
+```json
+
+```  
 ## Transaction Type 5
 
 Sell name transaction
@@ -1142,6 +1145,8 @@ Create Poll transaction
 ```
 
 ## Transaction Type 9
+
+Vote on poll transaction
 > Response
 
 ```json
@@ -1224,6 +1229,9 @@ Arbitrary transaction
 }
 ```
 ## Block
+
+### `
+
 >  Response
 
 ```json
