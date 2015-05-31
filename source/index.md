@@ -1232,7 +1232,6 @@ Arbitrary transaction
 
 ### `
 
-
 >  Response
 
 ```json
