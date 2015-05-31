@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Qora API Reference</title>
+    <title>API Reference</title>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -21,40 +21,35 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="https://www.coingecko.com/assets/coin-50/qora-be6c9c4c31e982d4d4059c64659ea576.png" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="qora">Qora</h1>
+        <h1 id="introduction">Introduction</h1>
 
-<p>This is a list of MOST api calls, this is not a full list.  For refrence, please see https://docs.google.com/document/d/1uBN8JXYNAWb8NUxon7MKx2MSJs4HHekIgolIXGTwR4c/</p>
+<p>This is the official API documentation of Qora</p>
 
-<h2 id="stop-qora">Stop Qora</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/stop
-</code></pre>
+<h1 id="qora">Qora</h1>
 
-<p>This command will peacefully stop the Qora daemon.  It does not return anything.</p>
+<p>Provides general information about the state of the application and the ability to close the application.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-qora/stop">GET qora/stop</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/qora/stop</code></p>
+<p>Will stop the application. This command might not be able to return a http OK message.</p>
 
-<h2 id="get-qora&#39;s-status">Get Qora&rsquo;s Status</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/status
-</code></pre>
+<h2 id="get-qora/status">GET qora/status</h2>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/qora/status</code></p>
-
-<h3 id="return-values">Return Values</h3>
+<p>Returns the status of the application</p>
 
 <table><thead>
 <tr>
@@ -72,21 +67,13 @@
 </tr>
 <tr>
 <td>2</td>
-<td>oke</td>
+<td>Oke</td>
 </tr>
 </tbody></table>
 
-<h2 id="check-if-qora-is-up-to-date">Check if Qora is up to date</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/isuptodate
-</code></pre>
+<h2 id="get-qora/status/forging">GET qora/status/forging</h2>
 
-<p>Returns a boolean that shows if the application is synchronized with the network.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/qora/isuptodate</code></p>
-
-<h3 id="return-values">Return Values</h3>
+<p>Returns the forging status</p>
 
 <table><thead>
 <tr>
@@ -96,100 +83,261 @@
 </thead><tbody>
 <tr>
 <td>0</td>
-<td>Is not up to date</td>
+<td>Forging Disabled</td>
 </tr>
 <tr>
 <td>1</td>
-<td>Is up to date</td>
+<td>Forging Enabled</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Forging</td>
 </tr>
 </tbody></table>
+
+<h2 id="get-qora/isuptodate">GET qora/isuptodate</h2>
+
+<p>Returns a boolean that shows if the application is synchronized with the network.</p>
 
 <h1 id="seed">Seed</h1>
 
 <p>To generate a random base58 encoded seed. These seeds can be used to create a wallet or to import an account.</p>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/seed/<span class="o">{</span>length<span class="o">}</span>
-</code></pre>
 
-<p>Returns a base58 encoded random seed of 32 bytes. Use the optional parameter length to request a seed of {length}bytes.</p>
+<h2 id="get-seed/{length}">GET seed/{length}</h2>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/seed/{length}</code></p>
+<p>Returns a base58 encoded random seed of 32 bytes. Use the optional parameter length to request a seed of {length} bytes.</p>
 
 <h1 id="peers">Peers</h1>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/peers
-</code></pre>
 
-<p>Returns an array of all the IP’s of the peers to which the application is currently connected.</p>
+<h2 id="get-peers">GET peers</h2>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/peers</code></p>
+<p>Returns an array of all the IP&rsquo;s of the peers to which the application is currently connected.</p>
 
 <h1 id="transactions">Transactions</h1>
 
-<h2 id="view-transactions">View Transactions</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions
-</code></pre>
+<h2 id="get-transactions">GET transactions</h2>
 
 <p>Returns an array of your accounts each with their 50 last transactions.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QQNFGuE8iZZ3sHjCnvvdbhfQHXokU8SgCX"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions</code></p>
+<h3 id="errors">Errors</h3>
 
-<h2 id="view-transactions-(limit)">View Transactions (Limit)</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/limit/<span class="o">{</span>limit<span class="o">}</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-transactions/limit/{limit}">GET transactions/limit/{limit}</h2>
 
 <p>Returns an array of your accounts each with their {limit} last transactions.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"transactions"</span><span class="p">:[],</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="s2">"QQNFGuE8iZZ3sHjCnvvdbhfQHXokU8SgCX"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/limit/{limit}</code></p>
+<h3 id="errors">Errors</h3>
 
-<h2 id="view-transactions-for-address">View Transactions for Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/address/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-transactions/{address}">GET transactions/{address}</h2>
 
 <p>Returns an array of the last 50 transactions of a specific address in your wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Will be removed in future versions, use GET transactions/address/{address} instead.</p>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/transactions/address/{address}</code></p>
+<h3 id="errors">Errors</h3>
 
-<h2 id="view-{limit}-transactions-for-address">View {Limit} Transactions for Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/address/<span class="o">{</span>address<span class="o">}</span>/limit/<span class="o">{</span>limit<span class="o">}</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>address does not exist in wallet</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-transactions/address/{address}">GET transactions/address/{address}</h2>
+
+<p>Returns an array of the last 50 transactions of a specific address in your wallet.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>address does not exist in wallet</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-transactions/address/{address}/limit/{limit}">GET transactions/address/{address}/limit/{limit}</h2>
 
 <p>Returns an array of the last {limit} transactions of a specific address in your wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/transactions/address/{address}/limit/{limit}</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>address does not exist in wallet</td>
+</tr>
+</tbody></table>
 
-<h2 id="view-unconfirmed-transactions">View Unconfirmed Transactions</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/transactions/network
-</code></pre>
+<h2 id="get-transactions/signature/{signature}">GET transactions/signature/{signature}</h2>
+
+<p>Returns the transaction that matches the given signature.</p>
+
+<p>Will be moved to GET transactions/{signature} once GET transactions/{address} is removed.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>311</td>
+<td>Transaction does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-transactions/network">GET transactions/network</h2>
 
 <p>Returns an array of all the unconfirmed transactions known to the client.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="post-transactions/scan">POST transactions/scan</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/transactions/transactions/network</code></p>
+<p>Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.</p>
 
-<h2 id="scan-transactions">Scan Transactions</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/qora/scan
-</code></pre>
+<p>Return the last block it scanned, the amount of blocks it scanned and the scanned transactions.</p>
 
-<p>Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.
-Return the last block it scanned, the amount of blocks it scanned and the scanned transactions.</p>
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="s2">"blocklimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"transactionlimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST http://127.0.0.1:9085/qora/scan</code></p>
-
-<h3 id="filters">Filters</h3>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="mi">303</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"lastscanned"</span><span class="p">:</span><span class="s2">"HQzVY265bpf2pSuLK8P5PRWQN47Ui5PiqyFsgyz2WpRiu6xUaLyyj99yrkUt2xSMbexRoF5fqJijJwG9DGJjPVYDwrhgSa33vg2KxvehAXRdhXvegzjnW55Fn1NXy51Ei3D8A9CyW7N4ohzFdHwmGjNryM26RPnqaTmmrZA32HeX7uc"</span><span class="w">
+   </span><span class="s2">"transactions"</span><span class="err">:</span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1400254833419</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"Qec5ueWc4rcBrty47GZfFSqvLymxvcycFm"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">1959</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"38sGerf4a24fRCTeknzQJgGBJe6hKribjKZGpQmrqajJwDM216FoUm9VCve7tst4Dypn1qgHKVgb6qN4vK9QFv3p"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"2kioUSPPZdGvqWYZuT61J5M9nQ3udSzS2AZGU3MhdtNdbS2naWfuD6cpR2T9ZpKjRs2GFsyEYHDntQbBmTdsCyZL"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QWNNYAh4dD7gktCfN9hb454qEaitjEnfy5"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1400258674297</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"QVjcFWE6TnGePGJEtbNc1thwD2sgHBLvUV"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"42940527.25000000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">1949</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"kRMLekdCQY7Prq2nyL8XLuL77oAJKP8WNarq1GaU6CTLQZ8VHgZJQFAeqJrNeKpt52QgsYrawcscRncY1XEsePB"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"4YEbzGrvKntTJbfX3v4AZSY1JUaUqw7LFRm1s4ZDZKJqxfMWtKUw2Ho1jXXE16FSqwU4GqP8dxHaCV8huA6xDSg5"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"Qd9jQKZSXoYgFypTQySJUSbXcZvjgdiemn"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -223,288 +371,1858 @@ Return the last block it scanned, the amount of blocks it scanned and the scanne
 </tr>
 </tbody></table>
 
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+</tbody></table>
+
 <h1 id="blocks">Blocks</h1>
 
-<h2 id="get-blocks">Get Blocks</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks
-</code></pre>
+<h2 id="get-blocks">GET blocks</h2>
 
 <p>Returns an array of the 50 last blocks generated by your accounts.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/blocks</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
 
-<h2 id="get-blocks-from-address">Get Blocks From Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/address/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<h2 id="get-blocks/address/{address}">GET blocks/address/{address}</h2>
 
 <p>Returns an array of the 50 last blocks generated by a specific address in your wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/blocks/address/{address}</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+</tbody></table>
 
-<h2 id="get-genesis-block">Get Genesis Block</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/first
-</code></pre>
+<h2 id="get-blocks/{signature}">GET blocks/{signature}</h2>
+
+<p>Returns the block that matches the given signature.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-blocks/first">GET blocks/first</h2>
 
 <p>Returns the genesis block.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-blocks/last">GET blocks/last</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/first</code></p>
+<p>Returns the last valid block.</p>
 
-<h2 id="get-last-block">Get Last Block</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/last
-</code></pre>
+<h2 id="get-blocks/child/{signature}">GET blocks/child/{signature}</h2>
 
-<p>Returns the last block.</p>
+<p>Returns the child block of the block that matches the given signature.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/last</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+</tbody></table>
 
-<h2 id="get-block-time">Get Block Time</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/time
-</code></pre>
+<h2 id="get-blocks/generatingbalance">GET blocks/generatingbalance</h2>
 
-<p>Returns the time it should take to generate a block.</p>
+<p>Calculates the generating balance of the block that will follow the last block.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-blocks/generatingbalance/{signature}">GET blocks/generatingbalance/{signature}</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/time</code></p>
+<p>Calculates the generating balance of the block that will follow the block that matches the signature.</p>
 
-<h2 id="get-block-height">Get Block Height</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/blocks/height
-</code></pre>
+<h3 id="errors">Errors</h3>
 
-<p>Returns the last blocks height.</p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+</tbody></table>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-blocks/time">GET blocks/time</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/height</code></p>
+<p>Calculates the time it should take for the network to generate the next block.</p>
+
+<h2 id="get-blocks/time/{generatingbalance}">GET blocks/time/{generatingbalance}</h2>
+
+<p>Calculates the time it should take for the network to generate blocks when the current generating balance in the network is the specified generating balance.</p>
+
+<h2 id="get-blocks/height">GET blocks/height</h2>
+
+<p>Returns the block height of the last block.</p>
+
+<h2 id="get-blocks/height/{signature}">GET blocks/height/{signature}</h2>
+
+<p>Returns the block height of the block that matches the given signature.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+</tbody></table>
 
 <h1 id="addresses">Addresses</h1>
 
-<h2 id="get-your-addresses">Get Your Addresses</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses
-</code></pre>
+<h2 id="get-addresses">GET addresses</h2>
 
 <p>Returns an array of all the addresses in your wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/addresses</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
 
-<h2 id="validate-an-address">Validate an Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/validate/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<h2 id="get-addresses/validate/{address}">GET addresses/validate/{address}</h2>
 
-<p>Validates the given address.
-Returns true/false.</p>
+<p>Validates the given address.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Returns true/false.</p>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/addresses/validate/{address}</code></p>
+<h2 id="get-addresses/seed/{address}">GET addresses/seed/{address}</h2>
 
-<h2 id="generate-an-address">Generate an Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/new
-</code></pre>
+<p>Returns the 32-byte long base58-encoded account seed of the given address.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-addresses/new">GET addresses/new</h2>
 
 <p>Generates a new account and returns the newly generated address.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/addresses/new</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
 
-<h2 id="import-an-address">Import an Address</h2>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/addresses
-</code></pre>
+<h2 id="post-addresses">POST addresses</h2>
 
-<p>Generates a new account and returns the newly generated address.</p>
+<p>Imports the given 32-byte long base58-encoded account seed.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Returns the address when successfully imported.</p>
 
-<p><code class="prettyprint">POST http://127.0.0.1:9085/addresses/new</code></p>
+<h3 id="errors">Errors</h3>
 
-<h2 id="get-generating-balance">Get Generating Balance</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/generatingbalance/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>103</td>
+<td>Invalid seed.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-addresses/{address}">DELETE addresses/{address}</h2>
+
+<p>Deletes the given address.</p>
+
+<p>Returns true/false.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-addresses/generatingbalance/{address}">GET addresses/generatingbalance/{address}</h2>
 
 <p>Return the generating balance of the given address.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-addresses/balance/{address}">GET addresses/balance/{address}</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/addresses/generatingbalance/{address}</code></p>
+<p>Returns the confirmed balance of the given address.</p>
 
-<h2 id="get-balance">Get Balance</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/addresses/balance/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<h3 id="errors">Errors</h3>
 
-<p>Return the confirmed balance of the given address.</p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+</tbody></table>
 
-<h3 id="http-request">HTTP Request</h3>
+<h2 id="get-addresses/balance/{address}/{confirmation}">GET addresses/balance/{address}/{confirmation}</h2>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/addresses/balance/{address}</code></p>
+<p>Calculates the balance of the given address after the given confirmations.</p>
+
+<p>0 confirmations can only be used on addresses that exist in your wallet.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+</tbody></table>
+
+<h2 id="post-addresses/sign/-{address}">POST addresses/sign/ <strong>{address}</strong></h2>
+
+<p>Signs the  given message using the given address.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"publickey"</span><span class="p">:</span><span class="s2">"6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3"</span><span class="p">,</span><span class="w">   </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
+
+<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}</h2>
+
+<p>Verifies if the given message was signed by the given address. Returns true/false.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"publickey"</span><span class="p">:</span><span class="s2">"6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3"</span><span class="p">,</span><span class="w">   </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>101</td>
+<td>Invalid signature</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Invalid public key.</td>
+</tr>
+</tbody></table>
 
 <h1 id="wallet">Wallet</h1>
 
-<h2 id="get-wallet-info">Get Wallet Info</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/wallet
-</code></pre>
+<h2 id="get-wallet">GET wallet</h2>
 
 <p>Returns general information about the wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"exists"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"isunlocked"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/wallet</code></p>
-
-<h2 id="syncronize-wallet">Syncronize Wallet</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/wallet/sesynchronizeed
-</code></pre>
+<h2 id="get-wallet/seed">GET wallet/seed</h2>
 
 <p>Return the 32-byte long base58-encoded wallet seed.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/wallet/seed</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
 
-<h2 id="sync-wallet">Sync Wallet</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/synchronize
-</code></pre>
+<h2 id="get-wallet/synchronize">GET wallet/synchronize</h2>
 
 <p>Rescans the blockchain for data.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/synchronize</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
 
-<h2 id="lock-wallet">Lock Wallet</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/lock
-</code></pre>
+<h2 id="get-wallet/lock">GET wallet/lock</h2>
 
-<p>Rescans the blockchain for data.</p>
+<p>Locks the wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Returns true/false depending on the fact if the wallet was already locked and if the password was correct.</p>
 
-<p>Locks the wallet.
-Returns true/false depending on the fact if the wallet was already locked and if the password was correct.</p>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/lock</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
 
-<h2 id="create-a-wallet">Create a Wallet</h2>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"seed"</span><span class="p">:</span><span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"cookies"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"recover"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="s2">"amount"</span><span class="p">:</span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h2 id="post-wallet">POST wallet</h2>
 
 <p>Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.</p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST http://127.0.0.1:9085/wallet</code></p>
-
-<h2 id="unlock-wallet">Unlock Wallet</h2>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/wallet/unlock
-</code></pre>
-
-<p>Unlocks the wallet using the given password.
-Returns true/false depending on the fact if the password is correct.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST http://127.0.0.1:9085/wallet/unlock</code></p>
-
-<h1 id="payment">Payment</h1>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/payment
-</code></pre>
+<blockquote>
+<p>Format</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"10.05"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.000001"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"</span><span class="w">
+   </span><span class="s2">"seed"</span><span class="p">:</span><span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"cookies"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"recover"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Send a new payment using the given data.
-Returns the transaction in JSON when successful.</p>
+<h3 id="errors">Errors</h3>
 
-<h3 id="http-request">HTTP Request</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Invalid seed.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Wallet already exists.</td>
+</tr>
+</tbody></table>
 
-<p><code class="prettyprint">POST http://127.0.0.1:9085/payment</code></p>
+<h2 id="post-wallet/unlock">POST wallet/unlock</h2>
+
+<p>Unlocks the wallet using the given password.</p>
+
+<p>Returns true/false depending on the fact if the password is correct.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h1 id="payment">Payment</h1>
+
+<h2 id="post-payment">POST payment</h2>
+
+<p>Send a new payment using the given data.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"10.05"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.000001"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Invalid sender.</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Invalid recipient.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
 
 <h1 id="names">Names</h1>
 
-<h2 id="get-names">Get Names</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names
-</code></pre>
+<h2 id="get-names">GET names</h2>
 
 <p>Returns an array of all the names owned by your accounts.</p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/names</code></p>
-
-<h2 id="get-names-by-address">Get Names by Address</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names/address/<span class="o">{</span>address<span class="o">}</span>
-</code></pre>
+<h2 id="get-names/address/{address}">GET names/address/{address}</h2>
 
 <p>Returns an array of all the names owned by a specific address in your wallet.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="errors">Errors</h3>
 
-<p><code class="prettyprint">GET http://127.0.0.1:9085/names/address/{address}</code></p>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+</tbody></table>
 
-<h2 id="get-name-details">Get Name Details</h2>
-<pre class="highlight shell"><code>curl -s http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
-</code></pre>
+<h2 id="get-names/{name}">GET names/{name}</h2>
 
 <p>Returns details about the given name</p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://127.0.0.1:9085/names/{name}</code></p>
-
-<h2 id="register-name">Register Name</h2>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names
-</code></pre>
+<blockquote>
+<p>Format</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"http://qora.org"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"registrant"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"http://qora.org"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Register a new name.
-Returns the transaction in JSON when successful.</p>
+<h3 id="errors">Errors</h3>
 
-<h3 id="http-request">HTTP Request</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+</tbody></table>
 
-<p><code class="prettyprint">POST http://127.0.0.1:9085/names</code></p>
+<h2 id="post-names">POST names</h2>
 
-<h2 id="update-name">Update Name</h2>
-<pre class="highlight shell"><code>curl -X POST -s http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
-</code></pre>
+<p>Register a new name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"newvalue"</span><span class="p">:</span><span class="s2">"http://qora.net"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"newowner"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"http://qora.org"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"registrant"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Updates an existing name.
-Returns the transaction in JSON when successful.</p>
+<h3 id="errors">Errors</h3>
 
-<h3 id="http-request">HTTP Request</h3>
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Invalid value length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Name already exists.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Name must be lower case.</td>
+</tr>
+</tbody></table>
 
-<p><code class="prettyprint">POST http://127.0.0.1:9085/names/{name}</code></p>
+<h2 id="post-names/{name}">POST names/{name}</h2>
+
+<p>Updates an existing name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"newvalue"</span><span class="p">:</span><span class="s2">"http://qora.net"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"newowner"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Invalid value length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Name already for sale.</td>
+</tr>
+</tbody></table>
+
+<h1 id="namesales">NameSales</h1>
+
+<h2 id="get-namesales">GET namesales</h2>
+
+<p>Returns an array of all the namesales owned by your accounts.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-namesales/address/{address}">GET namesales/address/{address}</h2>
+
+<p>Returns an array of all the namesales owned by a specific address in your wallet.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-namesales/{name}">GET namesales/{name}</h2>
+
+<p>Return details about the given name that is for sale.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>410</td>
+<td>Name is not for sale.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-namesales/network">GET namesales/network</h2>
+
+<p>Returns an array of all the names that are for sale.</p>
+
+<p>For performance this array only contains the keys of the names that are for sale and not the details.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+   </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"test"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="post-namesales/{name}">POST namesales/{name}</h2>
+
+<p>Used to sell the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Invalid name owner.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Name already for sale.</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-namesales/{name}/{fee}">DELETE namesales/{name}/{fee}</h2>
+
+<p>Used to cancel the sale of the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Invalid name owner.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Name is not for sale.</td>
+</tr>
+</tbody></table>
+
+<h2 id="post-namesales/buy/{name}">POST namesales/buy/{name}</h2>
+
+<p>Used to purchase the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"buyer"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Invalid buyer.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Name is not for sale.</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Buyer is already the owner.</td>
+</tr>
+</tbody></table>
+
+<h1 id="polls">Polls</h1>
+
+<h2 id="get-polls">GET polls</h2>
+
+<p>Returns an array of all the polls created by your accounts.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-polls/address/{address}">GET polls/address/{address}</h2>
+
+<p>Returns an array of all the polls owned by a specific address in your wallet.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-polls/{name}">GET polls/{name}</h2>
+
+<p>Return details about the poll with the given name.</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>501</td>
+<td>Poll does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-polls/network">GET polls/network</h2>
+
+<p>Returns an array of all the polls.</p>
+
+<p>For performance this array only contains the names of the polls and not the details.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+   </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"test"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="post-polls">POST polls</h2>
+
+<p>Used to create a new poll.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"this is a testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"option two"</span><span class="w">
+              </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Invalid description length.</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Invalid options length.</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Invalid option length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Name must be lowercase.</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Poll already exists.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Duplicate option.</td>
+</tr>
+</tbody></table>
+
+<h2 id="post-polls/vote/{name}">POST polls/vote/{name}</h2>
+
+<p>Used to vote on a poll with the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"voter"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Invalid option length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Name must be lowercase.</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Poll does not exist.</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Polloption does not exist.</td>
+</tr>
+<tr>
+<td>505</td>
+<td>Already voted for that option.</td>
+</tr>
+</tbody></table>
+
+<h1 id="arbitrarytransactions">ArbitraryTransactions</h1>
+
+<h2 id="post-arbitrarytransactions">POST arbitrarytransactions</h2>
+
+<p>Used to send an arbitrary transaction.</p>
+
+<p>The data of the arbitrary transaction must be base58 encoded and must be between 1-4000 bytes.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="mi">555</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Invalid data.</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Invalid data length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+</tbody></table>
+
+<h1 id="response-objects">Response Objects</h1>
+
+<p><code class="prettyprint">Generic information</code></p>
+
+<h2 id="transaction-type-1">Transaction Type 1</h2>
+
+<p>Genesis transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399139274713</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"500000000.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QQNFGuE8iZZ3sHjCnvvdbhfQHXokU8SgCX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-2">Transaction Type 2</h2>
+
+<p>Payment transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sender"</span><span class="p">:</span><span class="s2">"QRsraeFA9xiD3qVWiLSbxdcW2goUeGFVnF"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"10.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399656640390</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"keFP1SfTn4WVXgew1qUH6G8xmRrLaaSju65Ni36fhcSBMny8tMZjHc8BWdGMbjRRXmzNpBmi7JFwG1fPCMcvdkq"</span><span class="p">,</span><span class="w">            </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"wXrNfiDTamahSrMKNg96XAaAxojD5Nxm8gKPhM1qp2DzSMHvuaek5kzEQfHvzZe1AtxoQkbc5ELoEL5F4sXKNnt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipient"</span><span class="p">:</span><span class="s2">"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-3">Transaction Type 3</h2>
+
+<p>Register name transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399314215363</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"registrant"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"5gE3vbzwDUbkR9YUem8RHVV3HcswrCX2ej9bA5MbJyaMrhQGXkFKqnvEtgq3s1vK3LizFEzCLz2HxJtdgULjMJRr"</span><span class="p">,</span><span class="w"> </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"5a1tyxSzX57sV6cqneyhTtWqV11pZPFsPqhTEPVqkNNFrrs1uCnG4DD3bUHar5PfJsF39YShxNCJYs1tZsFFtJoX"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-4">Transaction Type 4</h2>
+
+<p>Update name transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"newValue"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399656876336</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"newOwner"</span><span class="p">:</span><span class="s2">"QNpfdoKjU3r3PDjYStQqKtjQ2CaxQWmzjZ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"42npsTYYydk798VwtJg4a5JR2g39FC2ASEHPhdYr4x2jq6eLw1au2mjc2gxmvghsPojEmhaEreksj174rw4Uthbg"</span><span class="p">,</span><span class="w">            </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"5s2fqKKnAa8cVkYVng3aF2SqxkKE1ArWKyUwBsTRz5tqRP6RfQXzcA6SNbaXNgGH4T62oh9QaXoB4xbASemHRSGV"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+Transaction Type 5</h2>
+
+<p>Sell name transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"500.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399314220865</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"5a1tyxSzX57sV6cqneyhTtWqV11pZPFsPqhTEPVqkNNFrrs1uCnG4DD3bUHar5PfJsF39YShxNCJYs1tZsFFtJoX"</span><span class="p">,</span><span class="w">            </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"4L6XLyPCrAFChdzqmTCrGDp43yPiZk2Bn5Ch3YUUrGsXA8NuGo8dp7xQjsMNtRVSAtGdbXxsngTWmfM4ETVdTr6o"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-6">Transaction Type 6</h2>
+
+<p>Cancel namesale transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399657084324</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"QUDPJRGS8EreTvZWMDs5imyp3rAqU9hCPK"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"2yLvx23qZjBwFkyWFj6ScowYRBi15rzCwEvx1wDYpKonS9P7s13eZLCrC1tvau3uAfZKPFFdBvK9Utnb53hEjWJy"</span><span class="p">,</span><span class="w">            </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"4uNmBZ5aKkApMWvvAKKEpM3CBKCXPq1b3G615UmXfH3cMfVrFFZUURGCbnkc6n9ZfdFkuk6hxpJtZAnMz1KZstB6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-7">Transaction Type 7</h2>
+
+<p>Buy name transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"500.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399314260133</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"buyer"</span><span class="p">:</span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"PSG56nzDowqhYxzg2mmRXKcgxg8cBtyjEoTF37gXyCy4s3jXE6ygoRv81Sg7wTdHJ7xtwHD3uauWAEYKYGaxM7D"</span><span class="p">,</span><span class="w">          </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"42npsTYYydk798VwtJg4a5JR2g39FC2ASEHPhdYr4x2jq6eLw1au2mjc2gxmvghsPojEmhaEreksj174rw4Uthbg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-8">Transaction Type 8</h2>
+
+<p>Create Poll transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1403552417900</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"this is a testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"3cXi7YQGihx1q75P1YMcgeGnqHY2PGbzpScasMy4UTZ1brTCFuQVKWvDW8Ywj7c3BDh7aLKBoHft79mGZkkzs7bq"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"ofuYyAALXzR7x6Yhfh8HXkjDuqt2x5Ao9NP9QCtyRpmrd6A8CAXkb1GLQrntDA9zq"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"options"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"option two"</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-9">Transaction Type 9</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1403553008161</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"poll"</span><span class="p">:</span><span class="s2">"testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"ofuYyAALXzR7x6Yhfh8HXkjDuz1t7XdZeM446ejPunjF5iEqt2x5Ao9NP9QCtyRpmrd6A8CAXkb1GLQrntDA9zq"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"2kErpXY5EToBRk3coHVbnk5P4j5WixukDqedWhTJnCXsVFKy7samMta6QF7sgrcNbdk"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"option"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="transaction-type-10">Transaction Type 10</h2>
+
+<p>Arbitrary transaction</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"1.00001000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1403553008161</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"type"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"ofuYyAALXzR7x6Yhfh8HXkjDuz1t7XdZeM446ejPunjF5iEqt2x5Ao9NP9QCtyRpmrd6A8CAXkb1GLQrntDA9zq"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"2kErpXY5EToBRk3coHVbnk5P4j5WixukDqedWhTJnCXsVFKy7samMta6QF7sgrcNbdk"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"3cXi7YQGihx1q75P1YMcgeGnqHY2PGbzpScasMy4UTZ1brTCFuQVKWvDW8Ywj7c3BDh7aLKBoHft79mGZkkzs7bq"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="name">Name</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="s2">"QUDPJRGS8EreTvZWMDs5imyp3rAqU9hCPK"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="namesale">NameSale</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"500.0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">"QUDPJRGS8EreTvZWMDs5imyp3rAqU9hCPK"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="poll">Poll</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"this is a testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"testpoll"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"options"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"votes"</span><span class="p">:</span><span class="s2">"93393168.31001000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"voters"</span><span class="p">:[</span><span class="w">
+            </span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"QgpH3K3ArkQTg15xjKqGq3BRgE3aNH9Q2P"</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"option two"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"votes"</span><span class="p">:</span><span class="s2">"8772354.53899000"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"voters"</span><span class="p">:[</span><span class="w">
+            </span><span class="s2">"QRyECqW54ywKVt4kZTEXyRY17aaFUaxzc4"</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="block">Block</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">"4.00000000"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"transactions"</span><span class="p">:[],</span><span class="w">
+   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1399319724713</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"generatorSignature"</span><span class="p">:</span><span class="s2">"3k7jpRRCJNexhf8cdR7w1HAD7ppmo7DK2wzXBekFmKpwfVmZF5SiM9q8b5MwjCHtHmyoBTSXbq9iTodGxpf2qeri"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"generatingBalance"</span><span class="p">:</span><span class="mi">855786957</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"generator"</span><span class="p">:</span><span class="s2">"QUDPJRGS8EreTvZWMDs5imyp3rAqU9hCPK"</span><span class="p">,</span><span class="w">   </span><span class="s2">"reference"</span><span class="p">:</span><span class="s2">"HnhRcmrXp13dZwtP7T35Pzaav278pm8CDJmWRZStVpGVkzs6Bo4VnrbZ8XrouokReEKLGLZfLsbmodmRrhiJgkd3b67vDjgVMtKcR9WRRom8zHsE6FGvRgTv8pivBb3VrYDryECj96bpXgMqxPtZdmQUQHTUM1BA81XtUQukw5svw3K"</span><span class="p">,</span><span class="w">   </span><span class="s2">"transactionsSignature"</span><span class="p">:</span><span class="s2">"2pE2sn7jGHruhHzv4gWmr1sdgTXCBv8nvAZKsHDaCJETLVPX7XYhaYPSfwr5pz6WsAC99QRhPQihBeDyWDDqLxQP"</span><span class="p">,</span><span class="w"> </span><span class="s2">"signature"</span><span class="p">:</span><span class="s2">"F3Q5ihLGC2iFcS4RmRjbqSV85KWr13mXvSKDQCRBrBjG5h5n8hfd2sDWfLDSTiCrDhahojNmRQGKfwza57XFKs1vKFgK4xqQEAw7BjnEEAvvUWHndgE56LnaMDnfyGNfMGB3wfHNdQa8DQWoMptWbmUYKACzKyFEt2ssH6brknESgVM"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"version"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<p>When an error happens the API will return a HTTP message 400(bad request) combined with an error.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+          </span><span class="s2">"error"</span><span class="w"> </span><span class="err">101</span><span class="p">:,</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"invalid signature"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Unknown error.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Invalid signature.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Invalid seed.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Invalid sender.</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Invalid recipient.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Invalid value length.</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Invalid name owner.</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Invalid buyer.</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Invalid public key.</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Invalid options length.</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Invalid option length.</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Invalid data.</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Invalid data length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Wallet already exists.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Block does not exist.</td>
+</tr>
+<tr>
+<td>311</td>
+<td>Transaction does not exist.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Name already exists.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Name already for sale.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Name must be lower case.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Name is not for sale.</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Buyer is already the owner.</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Poll does not exist.</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Poll already exists.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Duplicate option.</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Polloption does not exist.</td>
+</tr>
+<tr>
+<td>505</td>
+<td>Already voted for that option.</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
