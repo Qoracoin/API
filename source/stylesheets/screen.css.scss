@@ -215,7 +215,6 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
       color: $nav-text;
@@ -443,6 +442,7 @@ html, body {
 
     td {
       padding: 10px;
+      border: 1px solid #ccc;
     }
 
     tr:last-child {
