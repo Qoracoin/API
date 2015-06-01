@@ -840,6 +840,24 @@
 </tr>
 </tbody></table>
 
+<h2 id="get-addresses/publickey/{address}">GET addresses/publickey/{address}</h2>
+<pre class="highlight plaintext"><code>GET addresses/publickey/{address}
+</code></pre>
+
+<p>Returns the public key of the given address</p>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+</tbody></table>
+
 <h2 id="post-addresses/sign/{address}">POST addresses/sign/{address}</h2>
 <pre class="highlight plaintext"><code>POST addresses/sign/{address}
 </code></pre>
@@ -2002,7 +2020,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="poll">Poll</h2>
+Poll</h2>
 
 <blockquote>
 <p>Response</p>
@@ -2031,9 +2049,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h1 id="transactions">Transactions</h1>
-
-<h2 id="type-1">Type 1</h2>
+<h2 id="transaction-type-1">Transaction Type 1</h2>
 
 <p>Genesis transaction</p>
 
@@ -2052,7 +2068,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-2">Type 2</h2>
+<h2 id="transaction-type-2">Transaction Type 2</h2>
 
 <p>Payment transaction</p>
 
@@ -2072,7 +2088,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-3">Type 3</h2>
+<h2 id="transaction-type-3">Transaction Type 3</h2>
 
 <p>Register name transaction</p>
 
@@ -2093,7 +2109,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-4">Type 4</h2>
+<h2 id="transaction-type-4">Transaction Type 4</h2>
 
 <p>Update name transaction</p>
 
@@ -2114,7 +2130,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-5">Type 5</h2>
+<h2 id="transaction-type-5">Transaction Type 5</h2>
 
 <p>Sell name transaction</p>
 
@@ -2134,7 +2150,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-6">Type 6</h2>
+Transaction Type 6</h2>
 
 <p>Cancel namesale transaction</p>
 
@@ -2153,7 +2169,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-Type 7</h2>
+<h2 id="transaction-type-7">Transaction Type 7</h2>
 
 <p>Buy name transaction</p>
 
@@ -2173,7 +2189,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-8">Type 8</h2>
+<h2 id="transaction-type-8">Transaction Type 8</h2>
 
 <p>Create Poll transaction</p>
 
@@ -2197,7 +2213,8 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-9">Type 9
+<h2 id="transaction-type-9">Transaction Type 9</h2>
+
 <p>Vote on poll transaction</p>
 
 <blockquote>
@@ -2216,7 +2233,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-10">Type 10</h2>
+<h2 id="transaction-type-10">Transaction Type 10</h2>
 
 <p>Arbitrary transaction</p>
 
@@ -2236,7 +2253,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-11">Type 11</h2>
+<h2 id="transaction-type-11">Transaction Type 11</h2>
 
 <p>Issue Asset transaction</p>
 
@@ -2258,7 +2275,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-12">Type 12</h2>
+<h2 id="transaction-type-12">Transaction Type 12</h2>
 
 <p>Transfer Asset transaction</p>
 
@@ -2279,7 +2296,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-13">Type 13</h2>
+<h2 id="transaction-type-13">Transaction Type 13</h2>
 
 <p>Create Order Transaction</p>
 
@@ -2303,7 +2320,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-14">Type 14</h2>
+<h2 id="transaction-type-14">Transaction Type 14</h2>
 
 <p>Cancel Order transaction</p>
 
@@ -2322,7 +2339,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-15">Type 15
+Transaction Type 15
 <p>Multi Payment Transaction</p>
 
 <blockquote>
@@ -2356,8 +2373,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-16">Type 16</h2>
-
+<h2 id="transaction-type-16">Transaction Type 16
 <p>Deploy Automated Transaction</p>
 
 <blockquote>
@@ -2380,7 +2396,7 @@ Type 7</h2>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="type-17">Type 17</h2>
+<h2 id="transaction-type-17">Transaction Type 17</h2>
 
 <p>Message Transaction</p>
 
