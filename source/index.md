@@ -599,6 +599,19 @@ Calculates the balance of the given address after the given confirmations.
 | --- | --- |
 | 102 | Invalid address. |
 
+## GET addresses/publickey/{address}
+```console
+GET addresses/publickey/{address}
+```
+
+Returns the public key of the given address
+
+###
+
+| Error | Description |
+| --- | --- |
+| 102 | Invalid address. |
+
 ## POST addresses/sign/{address}
 
 ```console
@@ -1329,9 +1342,7 @@ Returns the transaction in JSON when successful.
 }
 ```
 
-# Transactions
-
-## Type 1
+## Transaction Type 1
 
 Genesis transaction
 
@@ -1350,7 +1361,7 @@ Genesis transaction
 }
 ```
 
-## Type 2
+## Transaction Type 2
 
 Payment transaction
 
@@ -1370,7 +1381,7 @@ Payment transaction
 }
 ```
 
-## Type 3
+## Transaction Type 3
 
 Register name transaction
 
@@ -1391,7 +1402,7 @@ Register name transaction
 }
 ```
 
-## Type 4
+## Transaction Type 4
 
 Update name transaction
 
@@ -1412,7 +1423,7 @@ Update name transaction
 }
 ```
 
-## Type 5
+## Transaction Type 5
 
 Sell name transaction
 
@@ -1432,7 +1443,7 @@ Sell name transaction
 }
 ```
 
-## Type 6
+## Transaction Type 6
 
 Cancel namesale transaction
 
@@ -1451,7 +1462,7 @@ Cancel namesale transaction
 }
 ```
 
-## Type 7
+## Transaction Type 7
 
 Buy name transaction
 
@@ -1471,7 +1482,7 @@ Buy name transaction
 }
 ```
 
-## Type 8
+## Transaction Type 8
 
 Create Poll transaction
 
@@ -1495,7 +1506,7 @@ Create Poll transaction
 }
 ```
 
-## Type 9
+## Transaction Type 9
 
 Vote on poll transaction
 
@@ -1515,7 +1526,7 @@ Vote on poll transaction
 }
 ```
 
-## Type 10
+## Transaction Type 10
 
 Arbitrary transaction
 
@@ -1535,7 +1546,7 @@ Arbitrary transaction
 }
 ```
 
-## Type 11
+## Transaction Type 11
 
 Issue Asset transaction
 
@@ -1557,7 +1568,7 @@ Issue Asset transaction
 }
 ```
 
-## Type 12
+## Transaction Type 12
 
 Transfer Asset transaction
 
@@ -1578,7 +1589,7 @@ Transfer Asset transaction
 }
 ```
 
-## Type 13
+## Transaction Type 13
 
 Create Order Transaction
 
@@ -1602,7 +1613,7 @@ Create Order Transaction
 }
 ```
 
-## Type 14
+## Transaction Type 14
 
 Cancel Order transaction
 
@@ -1621,7 +1632,7 @@ Cancel Order transaction
 }
 ```
 
-## Type 15
+## Transaction Type 15
 
 Multi Payment Transaction
 
@@ -1656,7 +1667,7 @@ Multi Payment Transaction
 }
 ```
 
-## Type 16
+## Transaction Type 16
 
 Deploy Automated Transaction
 
@@ -1680,7 +1691,7 @@ Deploy Automated Transaction
 }
 ```
 
-## Type 17
+## Transaction Type 17
 
 Message Transaction
 
