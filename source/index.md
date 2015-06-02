@@ -1440,8 +1440,122 @@ Returns the IDs of the ATs created by the given creator.
 GET at/type/{type}
 ```
 
-Returns the AT IDs of the given type.
+Returns an array of the AT IDs for the given type.
 
+> Response
+
+```json
+[
+  "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
+  "AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn",
+  "AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f",
+  "ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb",
+  "ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj",
+  "ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"
+]
+```
+
+## GET at/transactions/recipients/{address}
+
+```shell
+GET at/transactions/recipients/{address}
+```
+
+Returns the AT transactions for the given recipient's address.
+
+> Response
+
+```json
+[
+  {
+    "message": "",
+    "amount": "50000.20000000",
+    "sender": "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
+    "blockHeight": 99061,
+    "seq": 1,
+    "recipient": "QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"
+  },
+  {
+    "message": "",
+    "amount": "50000.20000000",
+    "sender": "ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj",
+    "blockHeight": 99090,
+    "seq": 1,
+    "recipient": "QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"
+  }
+]
+```
+### `
+
+## GET at/limit/{limit}
+
+```shell
+GET at/limit/{limit}
+```
+
+Returns an array of the AT IDs limited
+
+> Response
+
+```json
+[
+  "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
+  "ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj",
+  "AVMvpJxRpdHxxEHcmnibDt6nYC3cBe8oH5",
+  "AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f",
+  "ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb",
+  "AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn",
+  "ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"
+]
+```
+
+## POST at
+
+```shell
+POST at
+```
+
+> Format
+
+```json
+{
+  "creator":"",
+  "name":"",
+  "description":"",
+  "type":"",
+  "tags":"",
+  "fee":"",
+  "quantity":"",
+  "code":"",
+  "data":"",
+  "dpages":"",
+  "cspages":"",
+  "uspages":"",
+  "minActivationAmount":""
+
+}
+```
+
+Deploys an AT with the given details
+
+> Response
+
+### Errors
+
+| Error | Description |
+| --- | --- |
+| 1 | Json error. |
+| 2 | Not enough balance. |
+| 3 | Not yet released. |
+| 102 | Invalid address. |
+| 105 | Invalid fee. |
+| 104 | Invalid amount. |
+| 108 | Invalid name length. |
+| 201 | Wallet does not exist. |
+| 202 | Address does not exist in wallet. |
+| 203 | Wallet is locked. |
+| 801 | Invalid desc length. |
+| 809 | Invalid creation bytes. |
 
 # Response Objects
 
