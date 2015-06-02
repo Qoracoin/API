@@ -2174,7 +2174,160 @@
 <pre class="highlight shell"><code>GET at/type/<span class="o">{</span><span class="nb">type</span><span class="o">}</span>
 </code></pre>
 
-<p>Returns the AT IDs of the given type.</p>
+<p>Returns an array of the AT IDs for the given type.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/transactions/recipients/{address}">GET at/transactions/recipients/{address}</h2>
+<pre class="highlight shell"><code>GET at/transactions/recipients/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<p>Returns the AT transactions for the given recipient&rsquo;s address.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99090</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 id="`">`</h3>
+
+<h2 id="get-at/limit/{limit}">GET at/limit/{limit}</h2>
+<pre class="highlight shell"><code>GET at/limit/<span class="o">{</span>limit<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of the AT IDs limited</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AVMvpJxRpdHxxEHcmnibDt6nYC3cBe8oH5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="post-at">POST at</h2>
+<pre class="highlight shell"><code>POST at
+</code></pre>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dpages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"minActivationAmount"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Deploys an AT with the given details</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>801</td>
+<td>Invalid desc length.</td>
+</tr>
+<tr>
+<td>809</td>
+<td>Invalid creation bytes.</td>
+</tr>
+</tbody></table>
 
 <h1 id="response-objects">Response Objects</h1>
 
