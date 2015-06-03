@@ -589,10 +589,10 @@ Returns the confirmed balance of the given address.
 | --- | --- |
 | 102 | Invalid address. |
 
-## GET assetbalance/{assetid}/{address}
+## GET addresses/assetbalance/{assetid}/{address}
 
 ```shell
-GET assetbalance/{assetid}/{address}
+## GET addresses/assetbalance/{assetid}/{address}
 ```
 
 Returns the confirmed balance of the given asset ID and the given address.
