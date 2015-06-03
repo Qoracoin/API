@@ -1611,11 +1611,11 @@ When an error happens the API will return a HTTP message 400(bad request) combin
 | 504 | Polloption does not exist. |
 | 505 | Already voted for that option. |
 
-# Response Objects
+# Response Objects  
 
 Below you will find generic information regarding API responses.
 
-## Block
+## Block  
 
 Sample response of a block.
 
@@ -1638,7 +1638,7 @@ Sample response of a block.
 }
 
 ```
-## Name
+## Name  
 
 Sample response of the naming feature.
 
@@ -1652,7 +1652,7 @@ Sample response of the naming feature.
 }
 ```
 
-## NameSale
+## NameSale  
 
 Sample response of the NameSale feature.
 
@@ -1666,7 +1666,7 @@ Sample response of the NameSale feature.
 }
 ```
 
-## Poll
+## Poll  
 
 Sample response of the Poll feature.
 
@@ -1697,7 +1697,7 @@ Sample response of the Poll feature.
 }
 ```
 
-## Transaction Type 1
+## Transaction Type 1  
 
 Genesis transaction
 
@@ -1716,7 +1716,7 @@ Genesis transaction
 }
 ```
 
-## Transaction Type 2
+## Transaction Type 2  
 
 Payment transaction
 
@@ -1736,7 +1736,7 @@ Payment transaction
 }
 ```
 
-## Transaction Type 3
+## Transaction Type 3  
 
 Register name transaction
 
@@ -1757,7 +1757,7 @@ Register name transaction
 }
 ```
 
-## Transaction Type 4
+## Transaction Type 4  
 
 Update name transaction
 
@@ -1778,7 +1778,7 @@ Update name transaction
 }
 ```
 
-## Transaction Type 5
+## Transaction Type 5  
 
 Sell name transaction
 
@@ -1798,7 +1798,7 @@ Sell name transaction
 }
 ```
 
-## Transaction Type 6
+## Transaction Type 6  
 
 Cancel namesale transaction
 
@@ -1817,7 +1817,7 @@ Cancel namesale transaction
 }
 ```
 
-## Transaction Type 7
+## Transaction Type 7  
 
 Buy name transaction
 
@@ -1837,7 +1837,7 @@ Buy name transaction
 }
 ```
 
-## Transaction Type 8
+## Transaction Type 8  
 
 Create Poll transaction
 
@@ -1861,7 +1861,7 @@ Create Poll transaction
 }
 ```
 
-## Transaction Type 9
+## Transaction Type 9  
 
 Vote on poll transaction
 
@@ -1881,7 +1881,7 @@ Vote on poll transaction
 }
 ```
 
-## Transaction Type 10
+## Transaction Type 10  
 
 Arbitrary transaction
 
@@ -1901,7 +1901,7 @@ Arbitrary transaction
 }
 ```
 
-## Transaction Type 11
+## Transaction Type 11  
 
 Issue Asset transaction
 
@@ -1923,7 +1923,7 @@ Issue Asset transaction
 }
 ```
 
-## Transaction Type 12
+## Transaction Type 12  
 
 Transfer Asset transaction
 
@@ -1944,7 +1944,7 @@ Transfer Asset transaction
 }
 ```
 
-## Transaction Type 13
+## Transaction Type 13  
 
 Create Order Transaction
 
@@ -1968,7 +1968,7 @@ Create Order Transaction
 }
 ```
 
-## Transaction Type 14
+## Transaction Type 14  
 
 Cancel Order transaction
 
@@ -1987,7 +1987,7 @@ Cancel Order transaction
 }
 ```
 
-## Transaction Type 15
+## Transaction Type 15  
 
 Multi Payment Transaction
 
@@ -2022,7 +2022,7 @@ Multi Payment Transaction
 }
 ```
 
-## Transaction Type 16
+## Transaction Type 16  
 
 Deploy Automated Transaction
 
@@ -2046,7 +2046,7 @@ Deploy Automated Transaction
 }
 ```
 
-## Transaction Type 17
+## Transaction Type 17  
 
 Message Transaction
 
