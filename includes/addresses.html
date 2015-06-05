@@ -144,7 +144,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="import-addres">Import Addres</h2>
+<h2 id="import-address">Import Address</h2>
 <pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses
   -X POST
   -d seed
@@ -157,6 +157,10 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <p>Imports the given 32-byte long base58-encoded account seed.</p>
 
 <p>Returns the address when successfully imported.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST addresses seed</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -268,8 +272,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>0 confirmations can only be used on addresses that exist in your wallet.</p>
 
-<h3 id="errors">Errors</h3>
-
+<h3 id="errors">Errors
 <table><thead>
 <tr>
 <th>Error</th>
@@ -342,7 +345,8 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}<pre class="highlight shell"><code>POST addresses/verify/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}</h2>
+<pre class="highlight shell"><code>POST addresses/verify/<span class="o">{</span>address<span class="o">}</span>
 </code></pre>
 
 <p>Verifies if the given message was signed by the given address. Returns true/false.</p>
