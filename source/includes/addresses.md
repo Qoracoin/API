@@ -43,7 +43,7 @@ Validates the given address.Returns true/false.
 
 `GET addresses/validate/{address}`
 
-## GET Address Seed
+## Get Address Seed
 
 ```shell
 curl "http://127.0.0.1:9085/addresses/seed/{address}"
@@ -94,10 +94,18 @@ Generates a new account and returns the newly generated address.
 
 
 
-## POST addresses
+## Import Addres
 
 ```shell
-POST addresses seed
+curl http://127.0.0.1:9085/addresses
+  -X POST
+  -d seed
+```
+
+```http
+POST addresses HTTP/1.1
+Host: 127.0.0.1:9085
+seed
 ```
 
 Imports the given 32-byte long base58-encoded account seed.
