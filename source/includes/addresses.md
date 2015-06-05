@@ -37,21 +37,27 @@ curl "http://127.0.0.1:9085/addresses/validate/{address}"
 GET addresses/validate/{address} HTTP/1.1
 host: 127.0.0.1:9085
 ```
-Validates the given address.
-
-Returns true/false.
+Validates the given address.Returns true/false.
 
 ### REQUEST
 
 `GET addresses/validate/{address}`
 
-## GET addresses/seed/{address}
+## GET Address Seed
 
 ```shell
-GET addresses/seed/{address}
+curl "http://127.0.0.1:9085/addresses/seed/{address}"
 ```
 
+```http
+GET addresses/seed/{address} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 Returns the 32-byte long base58-encoded account seed of the given address.
+
+### REQUEST
+
+`GET addresses/seed/{address}`
 
 ### Errors
 
@@ -62,13 +68,22 @@ Returns the 32-byte long base58-encoded account seed of the given address.
 | 202 | Address does not exist in wallet. |
 | 203 | Wallet is locked. |
 
-## GET addresses/new
+## Create A New Address
 
 ```shell
-GET addresses/new
+curl "http://127.0.0.1:9085/addresses/new"
+```
+
+```http
+GET addresses/new HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Generates a new account and returns the newly generated address.
+
+### REQUEST
+
+`GET addresses/new`
 
 ### Errors
 
