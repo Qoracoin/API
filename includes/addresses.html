@@ -221,17 +221,18 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/generatingbalance/{address}">GET addresses/generatingbalance/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/generatingbalance/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-address-balance">Get Address Balance</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/balance/{address}"</span>
 </code></pre>
-
-<p>Return the generating balance of the given address.</p>
-
-<h2 id="get-addresses/balance/{address}">GET addresses/balance/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/balance/<span class="o">{</span>address<span class="o">}</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/balance/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns the confirmed balance of the given address.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/balance/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -246,6 +247,19 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <td>Invalid address.</td>
 </tr>
 </tbody></table>
+
+<h2 id="get-address-generating-balance">GET Address Generating Balance</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/generatingbalance/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/generatingbalance/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Return the generating balance of the given address.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/generatingbalance/{address}</code></p>
 
 <h2 id="get-addresses/assetbalance/{assetid}/{address}">GET addresses/assetbalance/{assetid}/{address}</h2>
 <pre class="highlight shell"><code>GET addresses/assetbalance/<span class="o">{</span>assetid<span class="o">}</span>/<span class="o">{</span>address<span class="o">}</span>
@@ -279,7 +293,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>0 confirmations can only be used on addresses that exist in your wallet.</p>
 
-Errors</h3>
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
@@ -293,8 +307,7 @@ Errors</h3>
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/publickey/{address}">GET addresses/publickey/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/publickey/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-addresses/publickey/{address}">GET addresses/publickey/{address}<pre class="highlight shell"><code>GET addresses/publickey/<span class="o">{</span>address<span class="o">}</span>
 </code></pre>
 
 <p>Returns the public key of the given address</p>
