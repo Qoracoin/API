@@ -145,7 +145,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tbody></table>
 
 <h2 id="import-address">Import Address</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses"</span>
   -X POST
   -d seed
 </code></pre>
@@ -184,13 +184,20 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="delete-addresses/{address}">DELETE addresses/{address}</h2>
-<pre class="highlight shell"><code>DELETE addresses/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="delete-address">Delete Address</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/{address}
+  -X DELETE
+</span></code></pre>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">addresses/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+
 </code></pre>
 
-<p>Deletes the given address.</p>
+<p>Deletes the given address.Returns true/false.</p>
 
-<p>Returns true/false.</p>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">DELETE addresses/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -272,7 +279,8 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>0 confirmations can only be used on addresses that exist in your wallet.</p>
 
-<h3 id="errors">Errors
+Errors</h3>
+
 <table><thead>
 <tr>
 <th>Error</th>
