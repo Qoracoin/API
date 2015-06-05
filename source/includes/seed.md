@@ -23,7 +23,7 @@ Returns a base58 encoded random seed of 32 bytes
 You can execute this command by clicking here: <a href="http://127.0.0.1:9085/seed" target="blank">http://127.0.0.1:9085/seed</a>
 </aside>
 
-## Get seed by length
+## Get Seed By Length
 
 ```shell
 curl "http://127.0.0.1:9085/seed/{length}"

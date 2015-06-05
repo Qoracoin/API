@@ -169,7 +169,7 @@ Returns the transaction that matches the given signature.
 
 `GET transactions/signature/{signature}`
 
-Will be moved to GET transactions/{signature} once GET transactions/{address} is removed.
+<!-- Will be moved to GET transactions/{signature} once GET transactions/{address} is removed. -->
 
 ### Errors
 
