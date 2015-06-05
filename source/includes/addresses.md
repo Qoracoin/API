@@ -1,12 +1,25 @@
 # Addresses
 
-## GET addresses
+## Get Addresses
 
 ```shell
-GET addresses
+curl "http://127.0.0.1:9085/addresses"
+```
+
+```http
+GET addresses HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of all the addresses in your wallet.
+
+### REQUEST
+
+`GET addresses`
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/addresses" target="blank">http://127.0.0.1:9085/addresses</a>
+</aside>
 
 ### Errors
 
