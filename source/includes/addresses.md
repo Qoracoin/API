@@ -97,7 +97,7 @@ Generates a new account and returns the newly generated address.
 ## Import Address
 
 ```shell
-curl http://127.0.0.1:9085/addresses
+curl "http://127.0.0.1:9085/addresses"
   -X POST
   -d seed
 ```
@@ -124,15 +124,23 @@ Returns the address when successfully imported.
 | 201 | Wallet does not exist. |
 | 203 | Wallet is locked. |
 
-## DELETE addresses/{address}
+## Delete Address
 
 ```shell
-DELETE addresses/{address}
+curl "http://127.0.0.1:9085/addresses/{address}
+  -X DELETE
 ```
 
-Deletes the given address.
+```http
+DELETE addresses/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 
-Returns true/false.
+```
+Deletes the given address.Returns true/false.
+
+### REQUEST
+
+`DELETE addresses/{address}`
 
 ### Errors
 
