@@ -30,11 +30,22 @@
       <div class="content">
         <h1 id="addresses">Addresses</h1>
 
-<h2 id="get-addresses">GET addresses</h2>
-<pre class="highlight shell"><code>GET addresses
+<h2 id="get-addresses">Get Addresses</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the addresses in your wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses</code></p>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/addresses" target="blank">http://127.0.0.1:9085/addresses</a>
+</aside>
 
 <h3 id="errors">Errors</h3>
 
@@ -280,7 +291,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
