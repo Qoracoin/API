@@ -61,13 +61,20 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/validate/{address}">GET addresses/validate/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/validate/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="validate-address">Validate Address</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/validate/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/validate/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Validates the given address.</p>
 
 <p>Returns true/false.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/validate/{address}</code></p>
 
 <h2 id="get-addresses/seed/{address}">GET addresses/seed/{address}</h2>
 <pre class="highlight shell"><code>GET addresses/seed/<span class="o">{</span>address<span class="o">}</span>
@@ -291,8 +298,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-Errors</h3>
-
+<h3 id="errors">Errors
 <table><thead>
 <tr>
 <th>Error</th>
