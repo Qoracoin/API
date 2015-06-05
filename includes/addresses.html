@@ -68,19 +68,24 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <span class="na">host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
-<p>Validates the given address.</p>
-
-<p>Returns true/false.</p>
+<p>Validates the given address.Returns true/false.</p>
 
 <h3 id="request">REQUEST</h3>
 
 <p><code class="prettyprint">GET addresses/validate/{address}</code></p>
 
-<h2 id="get-addresses/seed/{address}">GET addresses/seed/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/seed/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-address-seed">GET Address Seed</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/seed/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/seed/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns the 32-byte long base58-encoded account seed of the given address.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/seed/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -108,11 +113,18 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/new">GET addresses/new</h2>
-<pre class="highlight shell"><code>GET addresses/new
+<h2 id="create-a-new-address">Create A New Address</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/new"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/new</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Generates a new account and returns the newly generated address.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/new</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -282,7 +294,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-addresses/sign/{address}">POST addresses/sign/{address}</h2>
+POST addresses/sign/{address}</h2>
 <pre class="highlight shell"><code>POST addresses/sign/<span class="o">{</span>address<span class="o">}</span>
 </code></pre>
 
@@ -298,7 +310,8 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors
+<h3 id="errors">Errors</h3>
+
 <table><thead>
 <tr>
 <th>Error</th>
@@ -323,8 +336,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}</h2>
-<pre class="highlight shell"><code>POST addresses/verify/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}<pre class="highlight shell"><code>POST addresses/verify/<span class="o">{</span>address<span class="o">}</span>
 </code></pre>
 
 <p>Verifies if the given message was signed by the given address. Returns true/false.</p>
