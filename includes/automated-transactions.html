@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_automated-transactions">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="automated-transactions">Automated Transactions</h1>
+
+<h2 id="get-at">GET at</h2>
+<pre class="highlight shell"><code>GET at
+</code></pre>
+
+<p>Returns an array of deployed AT scripts.</p>
+
+<p>For performance this array only contains the addresses of the deployed AT scripts and not the details.</p>
+
+<h2 id="get-at/id/{id}">GET at/id/{id}</h2>
+<pre class="highlight shell"><code>GET at/id/<span class="o">{</span>id<span class="o">}</span>
+</code></pre>
+
+<p>Returns the details of the given AT id.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acct,atomic cross chain tx,respond,responder"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Responders BURST address: BURST-2Z98-XJU6-A2UA-FDKZP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"minActivation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BURSTQORA @ 0.10"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"stopped"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"machineData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e6a81f23b849c75d33f6398244d84881066c9cc09f9c3e1fe8c72710f64b62300000000b88301003a334bb82f7d8b71010c8c94148688024e5f2027fb0b930ca00000000000000001000000f48201000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prevBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"machineCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3501030900000006040000000900000029302009000000040000000f1ab4000000330403090000003525010a000000260a000000320903350703090000003526010a0000001b0a000000cd322801331601000000003317010100000033180102000000331901030000003505020a0000001b0a000000a1320b033205041e050000001833000509000000320a033203041ab400000033160105000000331701060000003318010700000033190108000000320304320b033203041ab70000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"finished"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currentBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dead"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"running"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"creationBlock"</span><span class="p">:</span><span class="w"> </span><span class="mi">99056</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acct"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVDVVphUiaQsEKVTXsNwsWbQvV6zTzeP2t"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/creator/{creator}">GET at/creator/{creator}</h2>
+<pre class="highlight shell"><code>GET at/creator/<span class="o">{</span>creator<span class="o">}</span>
+</code></pre>
+
+<p>Returns the IDs of the ATs created by the given creator.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/type/{type}">GET at/type/{type}</h2>
+<pre class="highlight shell"><code>GET at/type/<span class="o">{</span><span class="nb">type</span><span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of the AT IDs for the given type.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/limit/{limit}">GET at/limit/{limit}</h2>
+<pre class="highlight shell"><code>GET at/limit/<span class="o">{</span>limit<span class="o">}</span>
+</code></pre>
+
+<p>Returns an array of the AT IDs limited</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AVMvpJxRpdHxxEHcmnibDt6nYC3cBe8oH5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJiK5MN1r1vtgCnjaDD7FWDfrQo3Gmsx1f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ALHZt7FYS2RcFjJjmXGkqAF9dcVQuFTGdb"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/transactions/id/{id}">GET at/transactions/id/{id}</h2>
+<pre class="highlight shell"><code>GET at/transactions/id/<span class="o">{</span>id<span class="o">}</span>
+</code></pre>
+
+<p>Returns the transactions of the given AT ID.</p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99057</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111111111111111111"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f596db64ca23c2c312658ee15a5d74eea858696e9279ecc1592982acdf6cfc68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVDVVphUiaQsEKVTXsNwsWbQvV6zTzeP2t"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.60000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111111111111111111111"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-at/transactions/recipients/{address}">GET at/transactions/recipients/{address}</h2>
+<pre class="highlight shell"><code>GET at/transactions/recipients/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99061</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000.20000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">99090</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRHDHASWAXarqTvB2X4SNtJCWbxGf68M2o"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+
+<p>Returns the AT transactions for the given recipient&rsquo;s address.  </p>
+
+<h2 id="post-at">POST at</h2>
+<pre class="highlight shell"><code>POST at
+</code></pre>
+
+<blockquote>
+<p>Format</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dpages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"minActivationAmount"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Deploys an AT with the given details</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Invalid amount.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>801</td>
+<td>Invalid desc length.</td>
+</tr>
+<tr>
+<td>809</td>
+<td>Invalid creation bytes.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

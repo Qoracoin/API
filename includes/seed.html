@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_seed">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="seed">Seed</h1>
+
+<p>To generate a random base58 encoded seed. These seeds can be used to create a wallet or to import an account.</p>
+
+<h2 id="get-seed">Get Seed</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/seed"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">seed</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Returns a base58 encoded random seed of 32 bytes</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET seed</code></p>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/seed" target="blank">http://127.0.0.1:9085/seed</a>
+</aside>
+
+<h2 id="get-seed-by-length">Get seed by length</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/seed/{length}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">seed/{length}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Use the optional parameter length to request a seed of {length} bytes.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET seed/{length}</code>  </p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

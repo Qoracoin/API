@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="includes includes_qora">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="qora">Qora</h1>
+
+<p>Provides general information about the state of the application and the ability to close the application.</p>
+
+<h2 id="stop">Stop</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/qora/stop"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">qora/stop</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Will stop the application. This command might not be able to return a http OK message.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET qora/stop</code></p>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/qora/stop" target="blank">http://127.0.0.1:9085/qora/stop</a>
+</aside>
+
+<h2 id="status">Status</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/qora/status"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/qora/status</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Returns the status of the application</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET qora/status</code></p>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>No connections</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Synchronizing</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Oke</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/qora/status" target="blank">http://127.0.0.1:9085/qora/status</a>
+</aside>
+
+<h2 id="forging-status">Forging Status</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/qora/status/forging"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">qora/status/forging</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Returns the forging status</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET qora/status/forging</code></p>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Forging Disabled</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Forging Enabled</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Forging</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/qora/status/forging" target="blank">http://127.0.0.1:9085/qora/status/forging</a>
+</aside>
+
+<h2 id="is-up-to-date">Is Up To Date</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/qora/isuptodate"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">qora/isuptodate</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Returns a boolean that shows if the application is synchronized with the network.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET qora/isuptodate</code></p>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/qora/isuptodate" target="blank">http://127.0.0.1:9085/qora/isuptodate</a>
+</aside>
+
+<h2 id="version">Version</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/version"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">version</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
+
+<p>Returns the current version and the build date of the installed application.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET version</code></p>
+
+<aside class="notice">
+You can execute this command by clicking here: <a href="http://127.0.0.1:9085/version" target="blank">http://127.0.0.1:9085/version</a>
+</aside>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
