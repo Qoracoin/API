@@ -150,27 +150,45 @@ Deletes the given address.Returns true/false.
 | 201 | Wallet does not exist. |
 | 203 | Wallet is locked. |
 
-## GET addresses/generatingbalance/{address}
+## Get Address Balance
 
 ```shell
-GET addresses/generatingbalance/{address}
+curl "http://127.0.0.1:9085/addresses/balance/{address}"
 ```
 
-Return the generating balance of the given address.
-
-## GET addresses/balance/{address}
-
-```shell
-GET addresses/balance/{address}
+```http
+GET addresses/balance/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns the confirmed balance of the given address.
+
+### REQUEST
+
+`GET addresses/balance/{address}`
 
 ### Errors
 
 | Error | Description |
 | --- | --- |
 | 102 | Invalid address. |
+
+## GET Address Generating Balance
+
+```shell
+curl "http://127.0.0.1:9085/addresses/generatingbalance/{address}"
+```
+
+```http
+GET addresses/generatingbalance/{address} HTTP/1.1
+Host: 127.0.0.1:9085
+```
+
+Return the generating balance of the given address.
+
+### REQUEST
+
+`GET addresses/generatingbalance/{address}`
 
 ## GET addresses/assetbalance/{assetid}/{address}
 
