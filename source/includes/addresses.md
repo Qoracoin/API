@@ -27,15 +27,23 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 | --- | --- |
 | 201 | Wallet does not exist. |
 
-## GET addresses/validate/{address}
+## Validate Address
 
 ```shell
-GET addresses/validate/{address}
+curl "http://127.0.0.1:9085/addresses/validate/{address}"
 ```
 
+```http
+GET addresses/validate/{address} HTTP/1.1
+host: 127.0.0.1:9085
+```
 Validates the given address.
 
 Returns true/false.
+
+### REQUEST
+
+`GET addresses/validate/{address}`
 
 ## GET addresses/seed/{address}
 
