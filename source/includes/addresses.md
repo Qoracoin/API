@@ -94,7 +94,7 @@ Generates a new account and returns the newly generated address.
 
 
 
-## Import Addres
+## Import Address
 
 ```shell
 curl http://127.0.0.1:9085/addresses
@@ -111,6 +111,10 @@ seed
 Imports the given 32-byte long base58-encoded account seed.
 
 Returns the address when successfully imported.
+
+### REQUEST
+
+`POST addresses seed`
 
 ### Errors
 
