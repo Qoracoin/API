@@ -71,17 +71,23 @@ Return details about the poll with the given name.
 | --- | --- |
 | 501 | Poll does not exist. |
 
-## GET polls/network
+## List Polls
 
 ```shell
-GET polls/network
+curl "http://127.0.0.1:9085/polls/network"
 ```
 
-Returns an array of all the polls.
-
-For performance this array only contains the names of the polls and not the details.
+```http
+GET polls/network HTTP/1.1
+Host: 127.0.0.1:9085
+```
 
 > Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 
 ```json
 [
@@ -89,19 +95,70 @@ For performance this array only contains the names of the polls and not the deta
   "test"
 ]
 ```
-## POST polls
+### REQUEST
+
+`GET polls/network`
+
+Returns an array of all the polls.
+
+For performance this array only contains the names of the polls and not the details.
+
+## Vote
 
 ```shell
-POST polls
+curl "http://127.0.0.1:9085polls/vote/{name}"
+  -X POST
+  -d '{"voter":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","option":"option one","fee":"1.00001"}'
 ```
 
-Used to create a new poll.
+```http
+POST polls/vote/{name} HTTP/1.1
+Host: 127.0.0.1:9085
+{
+  "voter": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",
+  "option": "option one",
+  "fee": "1.00001"
+}
+```
+
+Used to vote on a poll with the given name.
 
 Returns the transaction in JSON when successful.
 
-> Format
+### REQUEST
 
-```json
+`POST polls/vote/{name}`
+
+### Errors
+
+| Error | Description |
+| --- | --- |
+| 1 | Json error. |
+| 2 | Not enough balance. |
+| 3 | Not yet released. |
+| 102 | Invalid address. |
+| 105 | Invalid fee. |
+| 108 | Invalid name length. |
+| 114 | Invalid option length. |
+| 201 | Wallet does not exist. |
+| 202 | Address does not exist in wallet. |
+| 203 | Wallet is locked. |
+| 404 | Name must be lowercase. |
+| 501 | Poll does not exist. |
+| 504 | Polloption does not exist. |
+| 505 | Already voted for that option. |
+
+## Create Poll
+
+```shell
+curl "http://127.0.0.1:9085/polls"
+  -X POST
+  -d '{"creator":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","name":"testpoll","description":"this is a testpoll","options": ["option one","option two"],"fee":"1.00001"}'
+```
+
+```http
+POST polls HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "creator": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",
   "name": "testpoll",
@@ -113,6 +170,15 @@ Returns the transaction in JSON when successful.
   "fee": "1.00001"
 }
 ```
+
+Used to create a new poll.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST polls`
+
 ### Errors
 
 | Error | Description |
@@ -132,41 +198,3 @@ Returns the transaction in JSON when successful.
 | 404 | Name must be lowercase. |
 | 502 | Poll already exists. |
 | 503 | Duplicate option. |
-
-## POST polls/vote/{name}
-
-```shell
-POST polls/vote/{name}
-```
-
-Used to vote on a poll with the given name.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
-{
-  "voter": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",
-  "option": "option one",
-  "fee": "1.00001"
-}
-```
-### Errors
-
-| Error | Description |
-| --- | --- |
-| 1 | Json error. |
-| 2 | Not enough balance. |
-| 3 | Not yet released. |
-| 102 | Invalid address. |
-| 105 | Invalid fee. |
-| 108 | Invalid name length. |
-| 114 | Invalid option length. |
-| 201 | Wallet does not exist. |
-| 202 | Address does not exist in wallet. |
-| 203 | Wallet is locked. |
-| 404 | Name must be lowercase. |
-| 501 | Poll does not exist. |
-| 504 | Polloption does not exist. |
-| 505 | Already voted for that option. |
