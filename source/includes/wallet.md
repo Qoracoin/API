@@ -11,12 +11,6 @@ GET wallet HTTP/1.1
 Host: 127.0.0.1:9085
 ```
 
-Returns general information about the wallet.
-
-### REQUEST
-
-`GET wallet`
-
 > Response
 
 ```json
@@ -25,6 +19,14 @@ Returns general information about the wallet.
   "isunlocked": false
 }
 ```
+
+Returns general information about the wallet.
+
+### REQUEST
+
+`GET wallet`
+
+
 ## Get Wallet Seed
 
 ```shell
@@ -117,7 +119,9 @@ Returns true/false depending on the fact if the password is correct.
 
 ### REQUEST
 
+<!-- `POST wallet/unlock` -->
 `POST wallet/unlock`
+
 
 ### Errors
 
