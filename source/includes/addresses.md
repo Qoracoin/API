@@ -266,7 +266,7 @@ Returns the public key of the given address
 ## Sign Message
 
 ```shell
-curl http://127.0.0.1:9085/addresses/sign/{address}
+curl "http://127.0.0.1:9085/addresses/sign/{address}"
   -X POST
   -d test
 ```
@@ -310,7 +310,7 @@ Content-Type: application/json
 ## Verify Message
 
 ```shell
-curl http://127.0.0.1:9085/addresses/verify/{address}
+curl "http://127.0.0.1:9085/addresses/verify/{address}"
   -X POST
   -d '{"message": "test","publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3","signature":"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"}'
 ```
