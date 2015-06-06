@@ -49,7 +49,7 @@ Returns an array of all the namesales owned by a specific address in your wallet
 ## Get Sale Name Details
 
 ```shell
-GET namesales/{name}
+curl "http://127.0.0.1:9085/namesales/{name}"
 ```
 
 ```http
