@@ -134,7 +134,7 @@ Returns true/false depending on the fact if the password is correct.
 ```shell
 curl "http://127.0.0.1:9085/wallet"
   -X POST
-  -d {"seed": "FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz","password": "cookies","recover": false,"amount": 10}
+  -d '{"seed": "FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz","password": "cookies","recover": false,"amount": 10}'
 ```
 
 ```http
