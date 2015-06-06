@@ -158,9 +158,7 @@ Host: 127.0.0.1:9085
   "fee": "1.00001"
 }
 ```
-Used to sell the given name.
-
-Returns the transaction in JSON when successful.
+Used to sell the given name.Returns the transaction in JSON when successful.
 
 <!-- ### REQUEST -->
 ### REQUEST
@@ -194,9 +192,7 @@ curl "http://127.0.0.1:9085/namesales/{name}/{fee}"
 DELETE namesales/{name}/{fee} HTTP/1.1
 Host: 127.0.0.1:9085
 ```
-Used to cancel the sale of the given name.
-
-Returns the transaction in JSON when successful.
+Used to cancel the sale of the given name.Returns the transaction in JSON when successful.
 
 ### REQUEST
 
