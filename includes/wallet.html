@@ -37,12 +37,6 @@
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
-<p>Returns general information about the wallet.</p>
-
-<h3 id="request">REQUEST</h3>
-
-<p><code class="prettyprint">GET wallet</code></p>
-
 <blockquote>
 <p>Response</p>
 </blockquote>
@@ -51,6 +45,12 @@
   </span><span class="s2">"isunlocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Returns general information about the wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET wallet</code></p>
 
 <h2 id="get-wallet-seed">Get Wallet Seed</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet/seed"</span>
@@ -155,9 +155,11 @@
 
 <h3 id="request">REQUEST</h3>
 
+<!-- `POST wallet/unlock` -->
+
 <p><code class="prettyprint">POST wallet/unlock</code></p>
 
-Errors</h3>
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
