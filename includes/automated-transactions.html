@@ -30,23 +30,33 @@
       <div class="content">
         <h1 id="automated-transactions">Automated Transactions</h1>
 
-<h2 id="get-at">GET at</h2>
-<pre class="highlight shell"><code>GET at
+<h2 id="get-at">Get AT</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of deployed AT scripts.</p>
 
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at</code></p>
+
 <p>For performance this array only contains the addresses of the deployed AT scripts and not the details.</p>
 
-<h2 id="get-at/id/{id}">GET at/id/{id}</h2>
-<pre class="highlight shell"><code>GET at/id/<span class="o">{</span>id<span class="o">}</span>
+<h2 id="get-at-by-id">Get AT By ID</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/id/{id}"</span>
 </code></pre>
-
-<p>Returns the details of the given AT id.</p>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/id/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="s">Host" 127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="err">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acct,atomic cross chain tx,respond,responder"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accountBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
@@ -70,6 +80,8 @@
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p>Returns the details of the given AT id.</p>
 
 <h2 id="get-at/creator/{creator}">GET at/creator/{creator}</h2>
 <pre class="highlight shell"><code>GET at/creator/<span class="o">{</span>creator<span class="o">}</span>
