@@ -2007,6 +2007,81 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p><code class="prettyprint">GET namesales/network</code></p>
 
+<h2 id="buy-a-name">Buy A Name</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/buy/{name}"</span>
+  -X POST
+  -d <span class="s1">'{"buyer":"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5","fee":"1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">namesales/buy/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "buyer": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
+</code></pre>
+
+<p>Used to purchase the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST namesales/buy/{name}</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Invalid buyer.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Name does not exist.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Name is not for sale.</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Buyer is already the owner.</td>
+</tr>
+</tbody></table>
+
 <h2 id="sell-a-name">Sell A Name</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}"</span>
   -X POST
@@ -2024,7 +2099,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>Returns the transaction in JSON when successful.</p>
 
-<h3 id="request">REQUEST</h3>
+REQUEST</h3>
 
 <p><code class="prettyprint">POST namesales/{name}</code></p>
 
@@ -2082,13 +2157,20 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="delete-namesales/{name}/{fee}">DELETE namesales/{name}/{fee}</h2>
-<pre class="highlight shell"><code>DELETE namesales/<span class="o">{</span>name<span class="o">}</span>/<span class="o">{</span>fee<span class="o">}</span>
+Cancel Sale Name<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}/{fee}"</span>
+  -X DELETE
+</code></pre>
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">namesales/{name}/{fee}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Used to cancel the sale of the given name.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">DELETE namesales/{name}/{fee}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -2137,77 +2219,6 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <tr>
 <td>410</td>
 <td>Name is not for sale.</td>
-</tr>
-</tbody></table>
-
-<h2 id="post-namesales/buy/{name}">POST namesales/buy/{name}</h2>
-<pre class="highlight shell"><code>POST namesales/buy/<span class="o">{</span>name<span class="o">}</span>
-</code></pre>
-
-<p>Used to purchase the given name.</p>
-
-<p>Returns the transaction in JSON when successful.</p>
-
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="errors">Errors</h3>
-
-<table><thead>
-<tr>
-<th>Error</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Json error.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Not enough balance.</td>
-</tr>
-<tr>
-<td>102</td>
-<td>Invalid address.</td>
-</tr>
-<tr>
-<td>105</td>
-<td>Invalid fee.</td>
-</tr>
-<tr>
-<td>108</td>
-<td>Invalid name length.</td>
-</tr>
-<tr>
-<td>111</td>
-<td>Invalid buyer.</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Wallet does not exist.</td>
-</tr>
-<tr>
-<td>203</td>
-<td>Wallet is locked.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Name does not exist.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Name is not for sale.</td>
-</tr>
-<tr>
-<td>411</td>
-<td>Buyer is already the owner.</td>
 </tr>
 </tbody></table>
 
