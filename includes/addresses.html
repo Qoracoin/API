@@ -351,7 +351,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tbody></table>
 
 <h2 id="sign-message">Sign Message</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses/sign/<span class="o">{</span>address<span class="o">}</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/sign/{address}"</span>
   -X POST
   -d <span class="nb">test</span>
 </code></pre>
@@ -406,7 +406,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tbody></table>
 
 <h2 id="verify-message">Verify Message</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses/verify/<span class="o">{</span>address<span class="o">}</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/verify/{address}"</span>
   -X POST
   -d <span class="s1">'{"message": "test","publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3","signature":"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"}'</span>
 </code></pre>
@@ -423,13 +423,12 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <!-- ### REQUEST -->
 
-<h3 id="request">REQUEST</h3>
-
+<h3 id="request">REQUEST
 <!-- `POST addresses/verify/{address}` -->
 
 <p><code class="prettyprint">POST addresses/verify/{address}</code></p>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
