@@ -11,12 +11,10 @@ GET transactions HTTP/1.1
 Host: 127.0.0.1:9085
 ```
 
-Returns an array of your accounts each with their 50 last transactions.
-
-### REQUEST
-
-`GET transactions`
-
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 > Response
 
 ```json
@@ -35,6 +33,12 @@ Returns an array of your accounts each with their 50 last transactions.
   }
 ]
 ```
+
+Returns an array of your accounts each with their 50 last transactions.
+
+### REQUEST
+
+`GET transactions`
 
 ### Errors
 
@@ -53,13 +57,12 @@ GET transactions/limit/{limit} HTTP/1.1
 Host: 127.0.0.1:9085
 ```
 
-Returns an array of your accounts each with their {limit} last transactions.
-
-### REQUEST
-
-`GET transactions/limit/{limit}`
-
 > Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 
 ```json
 [
@@ -77,6 +80,12 @@ Returns an array of your accounts each with their {limit} last transactions.
   }
 ]
 ```
+
+Returns an array of your accounts each with their {limit} last transactions.
+
+### REQUEST
+
+`GET transactions/limit/{limit}`
 
 ### Errors
 
