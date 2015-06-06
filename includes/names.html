@@ -30,17 +30,31 @@
       <div class="content">
         <h1 id="names">Names</h1>
 
-<h2 id="get-names">GET names</h2>
-<pre class="highlight shell"><code>GET names
+<h2 id="get-names">Get Names</h2>
+<pre class="highlight shell"><code>curl <span class="s1">'http://127.0.0.1:9085/names'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the names owned by your accounts.</p>
 
-<h2 id="get-names/address/{address}">GET names/address/{address}</h2>
-<pre class="highlight shell"><code>GET names/address/<span class="o">{</span>address<span class="o">}</span>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names</code></p>
+
+<h2 id="get-names-by-address">Get Names By Address</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/address/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/address/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the names owned by a specific address in your wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names/address/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -64,15 +78,25 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-names/{name}">GET names/{name}</h2>
-<pre class="highlight shell"><code>GET names/<span class="o">{</span>name<span class="o">}</span>
+<h2 id="get-name-details">Get Name Details</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1/9085</span>
 </code></pre>
 
 <p>Returns details about the given name</p>
 
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names/{name}</code></p>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
@@ -94,7 +118,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="post-names">POST names</h2>
+<h2 id="register-name">Register Name</h2>
 <pre class="highlight shell"><code>POST names
 </code></pre>
 
@@ -113,7 +137,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
@@ -163,7 +187,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="post-names/{name}">POST names/{name}</h2>
+Update Name</h2>
 <pre class="highlight shell"><code>POST names/<span class="o">{</span>name<span class="o">}</span>
 </code></pre>
 
@@ -181,7 +205,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>

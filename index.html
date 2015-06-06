@@ -1518,10 +1518,10 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
           <h1 id="payment">Payment</h1>
 
-<h2 id="post-payment">POST payment</h2>
+<h2 id="post-payment">Post Payment</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1/9085/payment"</span>
   -X POST
-  -d <span class="o">{</span><span class="s2">"amount"</span>:<span class="s2">"10.05"</span>,<span class="s2">"fee"</span>:<span class="s2">"1.000001"</span>,<span class="s2">"sender"</span>:<span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span>,<span class="s2">"recipient"</span>:<span class="s2">"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"</span><span class="o">}</span>
+  -d <span class="s1">'{"amount":"10.05","fee":"1.000001","sender":"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"}'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">payment</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -1579,10 +1579,10 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-namepayment">POST namepayment</h2>
+<h2 id="post-name-payment">Post Name Payment</h2>
 <pre class="highlight shell"><code>curl http://127.0.0.1:9085/namepayment
   -X POST
-  -d <span class="o">{</span><span class="s2">"amount"</span>: <span class="s2">"10.05"</span>,<span class="s2">"fee"</span>: <span class="s2">"1.000001"</span>,<span class="s2">"sender"</span>: <span class="s2">"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM"</span>,<span class="s2">"recipient"</span>:<span class="s2">"qora"</span><span class="o">}</span>
+  -d <span class="s1">'{"amount": "10.05","fee": "1.000001","sender": "Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"qora"}'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">namepayment</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -1598,7 +1598,8 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>Returns the transaction in JSON when successful.</p>
 
-REQUEST
+<h3 id="request">REQUEST</h3>
+
 <p><code class="prettyprint">POST namepayment</code></p>
 
 <h3 id="errors">Errors</h3>
@@ -1649,17 +1650,31 @@ REQUEST
 
           <h1 id="names">Names</h1>
 
-<h2 id="get-names">GET names</h2>
-<pre class="highlight shell"><code>GET names
+<h2 id="get-names">Get Names</h2>
+<pre class="highlight shell"><code>curl <span class="s1">'http://127.0.0.1:9085/names'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the names owned by your accounts.</p>
 
-<h2 id="get-names/address/{address}">GET names/address/{address}</h2>
-<pre class="highlight shell"><code>GET names/address/<span class="o">{</span>address<span class="o">}</span>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names</code></p>
+
+<h2 id="get-names-by-address">Get Names By Address</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/address/<span class="o">{</span>address<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/address/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the names owned by a specific address in your wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names/address/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1683,15 +1698,25 @@ REQUEST
 </tr>
 </tbody></table>
 
-<h2 id="get-names/{name}">GET names/{name}</h2>
-<pre class="highlight shell"><code>GET names/<span class="o">{</span>name<span class="o">}</span>
+<h2 id="get-name-details">Get Name Details</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1/9085</span>
 </code></pre>
 
 <p>Returns details about the given name</p>
 
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET names/{name}</code></p>
+
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
@@ -1713,7 +1738,7 @@ REQUEST
 </tr>
 </tbody></table>
 
-<h2 id="post-names">POST names</h2>
+<h2 id="register-name">Register Name</h2>
 <pre class="highlight shell"><code>POST names
 </code></pre>
 
@@ -1732,7 +1757,7 @@ REQUEST
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
@@ -1782,7 +1807,7 @@ REQUEST
 </tr>
 </tbody></table>
 
-<h2 id="post-names/{name}">POST names/{name}</h2>
+Update Name</h2>
 <pre class="highlight shell"><code>POST names/<span class="o">{</span>name<span class="o">}</span>
 </code></pre>
 
@@ -1800,7 +1825,7 @@ REQUEST
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
