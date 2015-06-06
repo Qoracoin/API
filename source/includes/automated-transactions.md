@@ -1,24 +1,40 @@
 # Automated Transactions
 
-## GET at
+## Get AT
 
 ```shell
-GET at
+curl "http://127.0.0.1:9085/at"
+```
+
+```http
+GET at HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of deployed AT scripts.
 
+### REQUEST
+
+`GET at`
+
 For performance this array only contains the addresses of the deployed AT scripts and not the details.
 
-## GET at/id/{id}
+## Get AT By ID
 
 ```shell
-GET at/id/{id}
+curl "http://127.0.0.1:9085/at/id/{id}"
 ```
 
-Returns the details of the given AT id.
+```http
+GET at/id/{id} HTTP/1.1
+Host" 127.0.0.1:9085
+```
 
 > Response
+
+```http
+
+```
 
 ```json
 {
@@ -44,6 +60,8 @@ Returns the details of the given AT id.
   "version": 1
 }
 ```
+
+Returns the details of the given AT id.
 
 ## GET at/creator/{creator}
 
