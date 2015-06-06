@@ -72,7 +72,7 @@ Return details about the given name that is for sale.
 ## List Names
 
 ```shell
-GET namesales/network
+curl "http://127.0.0.1:9085/namesales/network"
 ```
 
 ```http
