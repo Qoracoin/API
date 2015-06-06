@@ -1,12 +1,21 @@
 # Polls
 
-## GET polls
+## Get Polls
 
 ```shell
-GET polls
+curl "http://127.0.0.1:9085/polls"
+```
+
+```http
+GET polls HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of all the polls created by your accounts.
+
+### REQUEST
+
+`GET polls`
 
 ### Errors
 
@@ -14,13 +23,22 @@ Returns an array of all the polls created by your accounts.
 | --- | --- |
 | 201 | Wallet does not exist. |
 
-## GET polls/address/{address}
+## Get Polls By Address
 
 ```shell
-GET polls/address/{address}
+curl "http://127.0.0.1:9085/polls/address/{address}"
+```
+
+```http
+GET polls/address/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of all the polls owned by a specific address in your wallet.
+
+### REQUEST
+
+`GET polls/address/{address}`
 
 ### Errors
 
@@ -30,11 +48,20 @@ Returns an array of all the polls owned by a specific address in your wallet.
 | 201 | Wallet does not exist. |
 | 202 | Address does not exist in wallet. |
 
-## GET polls/{name}
+## Get Polls By Name
 
 ```shell
-GET polls/{name}
+curl "http://127.0.0.1:9085/polls/{name}"
 ```
+
+```http
+GET polls/{name} HTTP/1.1
+Host: 127.0.0.1:9085
+```
+
+### REQUEST
+
+`GET polls/{name}`
 
 Return details about the poll with the given name.
 
