@@ -221,7 +221,7 @@ curl "http://http://127.0.0.1:9085/addresses/balance/{address}/{confirmation}"
 ```
 
 ```http
-GET addresses/balance/{address}/{confirmation} Http/1.1
+GET addresses/balance/{address}/{confirmation} HTTP/1.1
 Host: 127.0.0.1:9085
 ```
 Calculates the balance of the given address after the given confirmations.
