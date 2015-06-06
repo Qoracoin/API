@@ -3,7 +3,7 @@
 ## Get Names
 
 ```shell
-curl 'http://127.0.0.1:9085/names'
+curl "http://127.0.0.1:9085/names"
 ```
 
 ```http
@@ -20,7 +20,7 @@ Returns an array of all the names owned by your accounts.
 ## Get Names By Address
 
 ```shell
-curl 'http://127.0.0.1:9085/names/address/{address}'
+curl "http://127.0.0.1:9085/names/address/{address}"
 ```
 
 ```http
@@ -45,7 +45,7 @@ Returns an array of all the names owned by a specific address in your wallet.
 ## Get Name Details
 
 ```shell
-curl 'http://127.0.0.1:9085/names/{name}'
+curl "http://127.0.0.1:9085/names/{name}"
 ```
 
 ```http

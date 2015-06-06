@@ -3,7 +3,7 @@
 ## Get Namesales
 
 ```shell
-curl 'http://127.0.0.1:9085/namesales'
+curl "http://127.0.0.1:9085/namesales"
 ```
 
 ```http
