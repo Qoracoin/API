@@ -165,6 +165,7 @@ Returns an array of the AT IDs limited
 
 ### REQUEST
 
+<!-- `GET at/limit/{limit}` -->
 `GET at/limit/{limit}`
 
 ## Get AT Transactions
