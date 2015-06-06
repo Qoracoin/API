@@ -27,7 +27,7 @@ curl "http://127.0.0.1:9085/at/id/{id}"
 
 ```http
 GET at/id/{id} HTTP/1.1
-Host" 127.0.0.1:9085
+Host: 127.0.0.1:9085
 ```
 
 > Response
