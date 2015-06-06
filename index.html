@@ -1164,7 +1164,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <h2 id="calculate-address-balance">Calculate Address Balance</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://http://127.0.0.1:9085/addresses/balance/{address}/{confirmation}"</span>
 </code></pre>
-<pre class="highlight http"><code><span class="err">GET addresses/balance/{address}/{confirmation} Http/1.1
+<pre class="highlight http"><code><span class="err">GET addresses/balance/{address}/{confirmation}
 Host: 127.0.0.1:9085
 </span></code></pre>
 
@@ -1217,7 +1217,7 @@ Host: 127.0.0.1:9085
 </tr>
 </tbody></table>
 
-<h2 id="sign-message">Sign Message</h2>
+Sign Message</h2>
 <pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses/sign/<span class="o">{</span>address<span class="o">}</span>
   -X POST
   -d <span class="nb">test</span>
@@ -1242,8 +1242,7 @@ Host: 127.0.0.1:9085
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h3 id="request">REQUEST</h3>
-
+<h3 id="request">REQUEST
 <p><code class="prettyprint">POST addresses/sign/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
@@ -1288,7 +1287,7 @@ Host: 127.0.0.1:9085
 
 <p>Verifies if the given message was signed by the given address. Returns true/false.</p>
 
-<h3 id="request">REQUEST</h3>
+REQUEST</h3>
 
 <p><code class="prettyprint">POST addresses/verify/{address}</code></p>
 
