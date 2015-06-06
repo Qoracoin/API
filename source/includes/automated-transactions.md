@@ -226,6 +226,7 @@ Returns the transactions of the given AT ID.
 
 ### REQUEST
 
+<!-- `GET at/transactions/id/{id}` -->
 `GET at/transactions/id/{id}`
 
 ## Get AT Transactions By Recipient
