@@ -50,7 +50,7 @@ curl 'http://127.0.0.1:9085/names/{name}'
 
 ```http
 GET names/{name} HTTP/1.1
-Host: 127.0.0.1/9085
+Host: 127.0.0.1:9085
 ```
 
 > Response
@@ -133,7 +133,7 @@ curl "http://127.0.0.1:9085/names/{name}"
 
 ```http
 POST names/{name} HTTP/1.1
-Host: 127.0.0.1/9085
+Host: 127.0.0.1:9085
 {
   "newvalue": "http://qora.net",
   "newowner": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",
