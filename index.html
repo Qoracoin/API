@@ -1468,7 +1468,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <h2 id="create-wallet">Create Wallet</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet"</span>
   -X POST
-  -d <span class="o">{</span><span class="s2">"seed"</span>: <span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span>,<span class="s2">"password"</span>: <span class="s2">"cookies"</span>,<span class="s2">"recover"</span>: <span class="nb">false</span>,<span class="s2">"amount"</span>: 10<span class="o">}</span>
+  -d <span class="s1">'{"seed": "FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz","password": "cookies","recover": false,"amount": 10}'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">wallet</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -1482,7 +1482,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.</p>
 
-<h3 id="request">REQUEST</h3>
+REQUEST</h3>
 
 <p><code class="prettyprint">POST wallet</code></p>
 
