@@ -162,6 +162,7 @@ Used to sell the given name.
 
 Returns the transaction in JSON when successful.
 
+<!-- ### REQUEST -->
 ### REQUEST
 
 `POST namesales/{name}`
