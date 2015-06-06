@@ -254,6 +254,7 @@ Returns the public key of the given address
 
 ### REQUEST
 
+<!-- `GET addresses/publickey/{address}` -->
 `GET addresses/publickey/{address}`
 
 ### Errors
