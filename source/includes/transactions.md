@@ -11,11 +11,12 @@ GET transactions HTTP/1.1
 Host: 127.0.0.1:9085
 ```
 
+> Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
-> Response
 
 ```json
 [
