@@ -1954,7 +1954,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tbody></table>
 
 <h2 id="get-sale-name-details">Get Sale Name Details</h2>
-<pre class="highlight shell"><code>GET namesales/<span class="o">{</span>name<span class="o">}</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}"</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">namesales/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -2157,7 +2157,8 @@ REQUEST</h3>
 </tr>
 </tbody></table>
 
-Cancel Sale Name<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}/{fee}"</span>
+Cancel Sale Name</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}/{fee}"</span>
   -X DELETE
 </code></pre>
 <pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">namesales/{name}/{fee}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
