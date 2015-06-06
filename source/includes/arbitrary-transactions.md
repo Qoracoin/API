@@ -1,14 +1,16 @@
 # Arbitrary Transactions
 
-## POST arbitrarytransactions
+## Create Arbitrary Transaction
 
 ```shell
-POST arbitrarytransactions
+curl "http://127.0.0.1:9085/arbitrarytransactions"
+  -X POST
+  -d '{"creator":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","data":"4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA","service":555,"fee":"1.00001"}'
 ```
 
-> Format
-
-```json
+```http
+POST arbitrarytransactions HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "creator": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",
   "data": "4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA",
@@ -23,6 +25,9 @@ The data of the arbitrary transaction must be base58 encoded and must be between
 
 Returns the transaction in JSON when successful.
 
+### REQUEST
+
+`POST arbitrarytransactions`
 
 ### Errors
 
