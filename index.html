@@ -247,12 +247,9 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/pe
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">transactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
-
-<p>Returns an array of your accounts each with their 50 last transactions.</p>
-
-<h3 id="request">REQUEST</h3>
-
-<p><code class="prettyprint">GET transactions</code></p>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
@@ -272,6 +269,12 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/pe
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<p>Returns an array of your accounts each with their 50 last transactions.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET transactions</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -294,15 +297,12 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/pe
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
-<p>Returns an array of your accounts each with their {limit} last transactions.</p>
-
-<h3 id="request">REQUEST</h3>
-
-<p><code class="prettyprint">GET transactions/limit/{limit}</code></p>
-
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -318,6 +318,12 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/pe
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<p>Returns an array of your accounts each with their {limit} last transactions.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET transactions/limit/{limit}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -519,7 +525,7 @@ Will be removed in future versions, use GET transactions/address/{address} inste
 
 <p>Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.</p>
 
-<h3 id="request">REQUEST</h3>
+REQUEST</h3>
 
 <p><code class="prettyprint">POST transactions/scan</code></p>
 
