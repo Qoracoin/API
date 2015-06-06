@@ -1322,14 +1322,21 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
           <h1 id="wallet">Wallet</h1>
 
-<h2 id="get-wallet">GET wallet</h2>
-<pre class="highlight shell"><code>GET wallet
+<h2 id="get-wallet">Get Wallet</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet"</span>
+</code></pre>
+<pre class="highlight shell"><code>GET wallet HTTP/1.1
+Host: 127.0.0.1:9085
 </code></pre>
 
 <p>Returns general information about the wallet.</p>
 
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET wallet</code></p>
+
 <blockquote>
-<p>Format</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1337,11 +1344,18 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-wallet/seed">GET wallet/seed</h2>
-<pre class="highlight shell"><code>GET wallet/seed
+<h2 id="get-wallet-seed">Get Wallet Seed</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet/seed"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">wallet/seed</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Return the 32-byte long base58-encoded wallet seed.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET wallet/seed</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1361,11 +1375,18 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-wallet/synchronize">GET wallet/synchronize</h2>
+<h2 id="wallet-synchronize">Wallet Synchronize</h2>
 <pre class="highlight shell"><code>GET wallet/synchronize
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">wallet/synchronize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Rescans the blockchain for data.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET wallet/synchronize</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1381,14 +1402,21 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-wallet/lock">GET wallet/lock</h2>
-<pre class="highlight shell"><code>GET wallet/lock
+<h2 id="lock-wallet">Lock Wallet</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet/lock"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">wallet/lock</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Locks the wallet.</p>
 
 <p>Returns true/false depending on the fact if the wallet was already locked and if the password was correct.</p>
 
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET wallet/lock</code></p>
+
 <h3 id="errors">Errors</h3>
 
 <table><thead>
@@ -1403,22 +1431,58 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-wallet">POST wallet</h2>
-<pre class="highlight shell"><code>POST wallet
+<h2 id="unlock-wallet">Unlock Wallet</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/wallet/unlock
+  -X POST
+  -d password
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">wallet/unlock</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">password</span>
+</code></pre>
+
+<p>Unlocks the wallet using the given password.</p>
+
+<p>Returns true/false depending on the fact if the password is correct.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST wallet/unlock</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-wallet">Create Wallet</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet"</span>
+  -X POST
+  -d <span class="o">{</span><span class="s2">"seed"</span>: <span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span>,<span class="s2">"password"</span>: <span class="s2">"cookies"</span>,<span class="s2">"recover"</span>: <span class="nb">false</span>,<span class="s2">"amount"</span>: 10<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">wallet</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "seed": "FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz",</span>
+<span class="s">  "password": "cookies",</span>
+<span class="s">  "recover": false,</span>
+<span class="s">  "amount": 10</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"seed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cookies"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"recover"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST wallet</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1443,28 +1507,6 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <tr>
 <td>204</td>
 <td>Wallet already exists.</td>
-</tr>
-</tbody></table>
-
-<h2 id="post-wallet/unlock">POST wallet/unlock</h2>
-<pre class="highlight shell"><code>POST wallet/unlock password
-</code></pre>
-
-<p>Unlocks the wallet using the given password.</p>
-
-<p>Returns true/false depending on the fact if the password is correct.</p>
-
-<h3 id="errors">Errors</h3>
-
-<table><thead>
-<tr>
-<th>Error</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td>Wallet does not exist.</td>
 </tr>
 </tbody></table>
 
