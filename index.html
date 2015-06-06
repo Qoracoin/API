@@ -475,7 +475,7 @@ Will be removed in future versions, use GET transactions/address/{address} inste
 
 <h2 id="scan-transactions">Scan Transactions</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/transactions/scan"</span>
-  -d <span class="s1">'{"blocklimit": 1000,"transactionlimit": 100,"type": 2}'</span>
+  -d <span class="s1">'{"blocklimit":1000,"transactionlimit":100,"type":2}'</span>
   -X POST
 </code></pre>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">transactions/scan</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -525,7 +525,9 @@ Will be removed in future versions, use GET transactions/address/{address} inste
 
 <p>Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.</p>
 
-REQUEST</h3>
+<!-- ### REQUEST -->
+
+<h3 id="request">REQUEST</h3>
 
 <p><code class="prettyprint">POST transactions/scan</code></p>
 
@@ -1305,9 +1307,10 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 <h3 id="request">REQUEST
 <!-- `POST addresses/verify/{address}` -->
 
-<p><code class="prettyprint">POST addresses/verify/{address}</code></p>
+<p><code class="prettyprint">POST addresses/verify/{address}</code>
+<code class="prettyprint">POST addresses/verify/{address}</code></p>
 
-Errors</h3>
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
