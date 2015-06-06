@@ -44,7 +44,7 @@
 <p><code class="prettyprint">GET names</code></p>
 
 <h2 id="get-names-by-address">Get Names By Address</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/address/<span class="o">{</span>address<span class="o">}</span>
+<pre class="highlight shell"><code>curl <span class="s1">'http://127.0.0.1:9085/names/address/{address}'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/address/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -79,7 +79,7 @@
 </tbody></table>
 
 <h2 id="get-name-details">Get Name Details</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/names/<span class="o">{</span>name<span class="o">}</span>
+<pre class="highlight shell"><code>curl <span class="s1">'http://127.0.0.1:9085/names/{name}'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">names/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1/9085</span>
@@ -119,25 +119,29 @@
 </tbody></table>
 
 <h2 id="register-name">Register Name</h2>
-<pre class="highlight shell"><code>POST names
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1/9085/names"</span>
+  -X POST
+  -d <span class="s1">'{"name": "qora","value": "http://qora.org","registrant": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5","fee": "1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">names</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "name": "qora",</span>
+<span class="s">  "value": "http://qora.org",</span>
+<span class="s">  "registrant": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Register a new name.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://qora.org"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"registrant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h3 id="request">REQUEST</h3>
 
-Errors</h3>
+<p><code class="prettyprint">POST names</code></p>
+
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
@@ -187,25 +191,29 @@ Errors</h3>
 </tr>
 </tbody></table>
 
-Update Name</h2>
-<pre class="highlight shell"><code>POST names/<span class="o">{</span>name<span class="o">}</span>
+<h2 id="update-name">Update Name</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/names/{name}"</span>
+  -X POST
+  -d <span class="s1">'{"newvalue":"http://qora.net","newowner":"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5","fee":"1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">names/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1/9085</span>
+<span class="s">{</span>
+<span class="s">  "newvalue": "http://qora.net",</span>
+<span class="s">  "newowner": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Updates an existing name.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"newvalue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://qora.net"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"newowner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h3 id="request">REQUEST</h3>
 
-Errors</h3>
+<p><code class="prettyprint">POST names/{name}</code></p>
+
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
