@@ -55,8 +55,9 @@
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre class="highlight http"><code><span class="err">
-</span></code></pre>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acct,atomic cross chain tx,respond,responder"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accountBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00000000"</span><span class="p">,</span><span class="w">
@@ -83,30 +84,48 @@
 
 <p>Returns the details of the given AT id.</p>
 
-<h2 id="get-at/creator/{creator}">GET at/creator/{creator}</h2>
-<pre class="highlight shell"><code>GET at/creator/<span class="o">{</span>creator<span class="o">}</span>
-</code></pre>
+<h3 id="request">REQUEST</h3>
 
-<p>Returns the IDs of the ATs created by the given creator.</p>
+<p><code class="prettyprint">GET at/id/{id}</code></p>
+
+<h2 id="get-at-by-creator">Get AT By Creator</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/creator/{creator}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/creator/{creator}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-at/type/{type}">GET at/type/{type}</h2>
-<pre class="highlight shell"><code>GET at/type/<span class="o">{</span><span class="nb">type</span><span class="o">}</span>
-</code></pre>
+<p>Returns the IDs of the ATs created by the given creator.</p>
 
-<p>Returns an array of the AT IDs for the given type.</p>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at/creator/{creator}</code></p>
+
+<h2 id="get-at-by-type">Get AT By Type</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/type/{type}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/type/{type}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"AJMrqNG7LiwTquYtpXCuZbgzaD9hANSntn"</span><span class="p">,</span><span class="w">
@@ -117,15 +136,25 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-at/limit/{limit}">GET at/limit/{limit}</h2>
-<pre class="highlight shell"><code>GET at/limit/<span class="o">{</span>limit<span class="o">}</span>
-</code></pre>
+<p>Returns an array of the AT IDs for the given type.</p>
 
-<p>Returns an array of the AT IDs limited</p>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at/type/{type}</code></p>
+
+<h2 id="get-limited-at">Get Limited AT</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/limit/{limit}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/limit/{limit}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ALqEsn9ZysQqxmBvmvYCNTksrdNJLhjmrj"</span><span class="p">,</span><span class="w">
@@ -137,15 +166,25 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-at/transactions/id/{id}">GET at/transactions/id/{id}</h2>
-<pre class="highlight shell"><code>GET at/transactions/id/<span class="o">{</span>id<span class="o">}</span>
-</code></pre>
+<p>Returns an array of the AT IDs limited</p>
 
-<p>Returns the transactions of the given AT ID.</p>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at/limit/{limit}</code></p>
+
+Get AT Transactions</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/transactions/id/{id}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/transactions/id/{id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -182,13 +221,25 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-at/transactions/recipients/{address}">GET at/transactions/recipients/{address}</h2>
-<pre class="highlight shell"><code>GET at/transactions/recipients/<span class="o">{</span>address<span class="o">}</span>
+<p>Returns the transactions of the given AT ID.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at/transactions/id/{id}</code></p>
+
+<h2 id="get-at-transactions-by-recipient">Get AT Transactions By Recipient</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at/transactions/recipients/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">at/transactions/recipients/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -212,32 +263,38 @@
 
 <p>Returns the AT transactions for the given recipient&rsquo;s address.  </p>
 
-<h2 id="post-at">POST at</h2>
-<pre class="highlight shell"><code>POST at
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET at/transactions/recipients/{address}</code></p>
+
+<h2 id="create-at">Create AT</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/at"</span>
+  -X POST
+  -d <span class="s1">'{"creator":"","name":"","description":"","type":"","tags":"","fee":"","quantity":"","code":"","data":"","dpages":"","cspages":"","uspages":"","minActivationAmount":""}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">at</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "creator":"",</span>
+<span class="s">  "name":"",</span>
+<span class="s">  "description":"",</span>
+<span class="s">  "type":"",</span>
+<span class="s">  "tags":"",</span>
+<span class="s">  "fee":"",</span>
+<span class="s">  "quantity":"",</span>
+<span class="s">  "code":"",</span>
+<span class="s">  "data":"",</span>
+<span class="s">  "dpages":"",</span>
+<span class="s">  "cspages":"",</span>
+<span class="s">  "uspages":"",</span>
+<span class="s">  "minActivationAmount":""</span>
+
+}
 </code></pre>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"creator"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tags"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"dpages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"uspages"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"minActivationAmount"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+<p>Deploys an AT with the given details.Returns the transaction when successful.</p>
 
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Deploys an AT with the given details</p>
+<p><code class="prettyprint">POST at</code></p>
 
 <h3 id="errors">Errors</h3>
 
