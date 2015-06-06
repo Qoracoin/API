@@ -119,47 +119,149 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-polls/network">GET polls/network</h2>
-<pre class="highlight shell"><code>GET polls/network
+<h2 id="list-polls">List Polls</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/polls/network"</span>
 </code></pre>
-
-<p>Returns an array of all the polls.</p>
-
-<p>For performance this array only contains the names of the polls and not the details.</p>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">polls/network</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+</code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"test"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="post-polls">POST polls</h2>
-<pre class="highlight shell"><code>POST polls
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET polls/network</code></p>
+
+<p>Returns an array of all the polls.</p>
+
+<p>For performance this array only contains the names of the polls and not the details.</p>
+
+<h2 id="vote">Vote</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085polls/vote/{name}"</span>
+  -X POST
+  -d <span class="s1">'{"voter":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","option":"option one","fee":"1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">polls/vote/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "voter": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",</span>
+<span class="s">  "option": "option one",</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
+</code></pre>
+
+<p>Used to vote on a poll with the given name.</p>
+
+<p>Returns the transaction in JSON when successful.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST polls/vote/{name}</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Error</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Json error.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Not enough balance.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not yet released.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Invalid address.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Invalid fee.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Invalid name length.</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Invalid option length.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Wallet does not exist.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Address does not exist in wallet.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Wallet is locked.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Name must be lowercase.</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Poll does not exist.</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Polloption does not exist.</td>
+</tr>
+<tr>
+<td>505</td>
+<td>Already voted for that option.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-poll">Create Poll</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/polls"</span>
+  -X POST
+  -d <span class="s1">'{"creator":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","name":"testpoll","description":"this is a testpoll","options": ["option one","option two"],"fee":"1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">polls</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "creator": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",</span>
+<span class="s">  "name": "testpoll",</span>
+<span class="s">  "description": "this is a testpoll",</span>
+<span class="s">  "options": [</span>
+<span class="s">    "option one",</span>
+<span class="s">    "option two"</span>
+<span class="s">  ],</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Used to create a new poll.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testpoll"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a testpoll"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"option two"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+REQUEST</h3>
 
-Errors</h3>
+<p><code class="prettyprint">POST polls</code></p>
+
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
@@ -226,90 +328,6 @@ Errors</h3>
 <tr>
 <td>503</td>
 <td>Duplicate option.</td>
-</tr>
-</tbody></table>
-
-<h2 id="post-polls/vote/{name}">POST polls/vote/{name}</h2>
-<pre class="highlight shell"><code>POST polls/vote/<span class="o">{</span>name<span class="o">}</span>
-</code></pre>
-
-<p>Used to vote on a poll with the given name.</p>
-
-<p>Returns the transaction in JSON when successful.</p>
-
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"voter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"option one"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="errors">Errors</h3>
-
-<table><thead>
-<tr>
-<th>Error</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>1</td>
-<td>Json error.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Not enough balance.</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Not yet released.</td>
-</tr>
-<tr>
-<td>102</td>
-<td>Invalid address.</td>
-</tr>
-<tr>
-<td>105</td>
-<td>Invalid fee.</td>
-</tr>
-<tr>
-<td>108</td>
-<td>Invalid name length.</td>
-</tr>
-<tr>
-<td>114</td>
-<td>Invalid option length.</td>
-</tr>
-<tr>
-<td>201</td>
-<td>Wallet does not exist.</td>
-</tr>
-<tr>
-<td>202</td>
-<td>Address does not exist in wallet.</td>
-</tr>
-<tr>
-<td>203</td>
-<td>Wallet is locked.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Name must be lowercase.</td>
-</tr>
-<tr>
-<td>501</td>
-<td>Poll does not exist.</td>
-</tr>
-<tr>
-<td>504</td>
-<td>Polloption does not exist.</td>
-</tr>
-<tr>
-<td>505</td>
-<td>Already voted for that option.</td>
 </tr>
 </tbody></table>
 
