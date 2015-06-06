@@ -30,11 +30,18 @@
       <div class="content">
         <h1 id="namesales">NameSales</h1>
 
-<h2 id="get-namesales">GET namesales</h2>
-<pre class="highlight shell"><code>GET namesales
+<h2 id="get-namesales">Get Namesales</h2>
+<pre class="highlight shell"><code>curl <span class="s1">'http://127.0.0.1:9085/namesales'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">namesales</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the namesales owned by your accounts.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET namesales</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -50,11 +57,18 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-namesales/address/{address}">GET namesales/address/{address}</h2>
-<pre class="highlight shell"><code>GET namesales/address/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-namesales-by-address">Get Namesales By Address</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/address/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">namesales/address/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns an array of all the namesales owned by a specific address in your wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET namesales/address/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -78,11 +92,18 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-namesales/{name}">GET namesales/{name}</h2>
+<h2 id="get-name-details">GET Name Details</h2>
 <pre class="highlight shell"><code>GET namesales/<span class="o">{</span>name<span class="o">}</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">namesales/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Return details about the given name that is for sale.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET namesales/{name}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -98,13 +119,19 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-namesales/network">GET namesales/network</h2>
+<h2 id="list-names">List Names</h2>
 <pre class="highlight shell"><code>GET namesales/network
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">namesales/network</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="s2">"qora"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"test"</span><span class="w">
@@ -115,22 +142,30 @@
 
 <p>For performance this array only contains the keys of the names that are for sale and not the details.</p>
 
-<h2 id="post-namesales/{name}">POST namesales/{name}</h2>
-<pre class="highlight shell"><code>POST namesales/<span class="o">{</span>name<span class="o">}</span>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET namesales/network</code></p>
+
+<h2 id="sell-a-name">Sell A Name</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/namesales/{name}"</span>
+  -X POST
+  -d <span class="s1">'{"amount":"100","fee":"1.00001"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">namesales/{name}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "amount": "100",</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Used to sell the given name.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST namesales/{name}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -186,7 +221,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="delete-namesales/{name}/{fee}">DELETE namesales/{name}/{fee}</h2>
+DELETE namesales/{name}/{fee}</h2>
 <pre class="highlight shell"><code>DELETE namesales/<span class="o">{</span>name<span class="o">}</span>/<span class="o">{</span>fee<span class="o">}</span>
 </code></pre>
 
@@ -244,7 +279,7 @@
 </tr>
 </tbody></table>
 
-POST namesales/buy/{name}</h2>
+<h2 id="post-namesales/buy/{name}">POST namesales/buy/{name}</h2>
 <pre class="highlight shell"><code>POST namesales/buy/<span class="o">{</span>name<span class="o">}</span>
 </code></pre>
 
