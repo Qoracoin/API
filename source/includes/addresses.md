@@ -332,6 +332,7 @@ Verifies if the given message was signed by the given address. Returns true or f
 
 <!-- `POST addresses/verify/{address}` -->
 `POST addresses/verify/{address}`
+`POST addresses/verify/{address}`
 
 ### Errors
 

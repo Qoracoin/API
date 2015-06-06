@@ -209,9 +209,10 @@ Returns an array of all the unconfirmed transactions known to the client.
 
 ```shell
 curl "http://127.0.0.1:9085/transactions/scan"
-  -d '{"blocklimit": 1000,"transactionlimit": 100,"type": 2}'
+  -d '{"blocklimit":1000,"transactionlimit":100,"type":2}'
   -X POST
 ```
+
 ```http
 POST transactions/scan HTTP/1.1
 Host: 127.0.0.1:9085
@@ -262,6 +263,7 @@ Content-Type: application/json
 
 Returns all the transactions that match the filters. All filters are optional but please limit that amount of transactions or blocks to scan to avoid running into issues.
 
+<!-- ### REQUEST -->
 ### REQUEST
 
 `POST transactions/scan`
