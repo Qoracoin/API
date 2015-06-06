@@ -33,7 +33,8 @@ Host" 127.0.0.1:9085
 > Response
 
 ```http
-
+HTTP/1.1 200 OK
+Content-Type: application/json
 ```
 
 ```json
@@ -63,16 +64,27 @@ Host" 127.0.0.1:9085
 
 Returns the details of the given AT id.
 
-## GET at/creator/{creator}
+###REQUEST
+
+`GET at/id/{id}`
+
+## Get AT By Creator
 
 ```shell
-GET at/creator/{creator}
+curl "http://127.0.0.1:9085/at/creator/{creator}"
 ```
 
-Returns the IDs of the ATs created by the given creator.
+```http
+GET at/creator/{creator} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 
 > Response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 ```json
 [
   "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
@@ -80,16 +92,29 @@ Returns the IDs of the ATs created by the given creator.
 ]
 ```
 
-## GET at/type/{type}
+Returns the IDs of the ATs created by the given creator.
+
+### REQUEST
+
+`GET at/creator/{creator}`
+
+## Get AT By Type
 
 ```shell
-GET at/type/{type}
+curl "http://127.0.0.1:9085/at/type/{type}"
 ```
 
-Returns an array of the AT IDs for the given type.
+```http
+GET at/type/{type} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 
 > Response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 ```json
 [
   "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
@@ -101,16 +126,29 @@ Returns an array of the AT IDs for the given type.
 ]
 ```
 
-## GET at/limit/{limit}  
+Returns an array of the AT IDs for the given type.
+
+### REQUEST
+
+`GET at/type/{type}`
+
+## Get Limited AT
 
 ```shell
-GET at/limit/{limit}
+curl "http://127.0.0.1:9085/at/limit/{limit}"
 ```
 
-Returns an array of the AT IDs limited
+```http
+GET at/limit/{limit} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 
 > Response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 ```json
 [
   "AGvtqUUWEpBM8CeDFcPP7a9s42nE4RKwK7",
@@ -122,17 +160,30 @@ Returns an array of the AT IDs limited
   "ASUn6hgiMYad1GPwiHodGgQvv6EkAadGiD"
 ]
 ```
+Returns an array of the AT IDs limited
 
-## GET at/transactions/id/{id}
+### REQUEST
+
+`GET at/limit/{limit}`
+
+
+## Get AT Transactions
 
 ```shell
-GET at/transactions/id/{id}
+curl "http://127.0.0.1:9085/at/transactions/id/{id}"
 ```
 
-Returns the transactions of the given AT ID.
+```http
+GET at/transactions/id/{id} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 
 > Response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 ```json
 [
   {
@@ -170,14 +221,29 @@ Returns the transactions of the given AT ID.
 ]
 ```
 
-## GET at/transactions/recipients/{address}
+Returns the transactions of the given AT ID.
+
+### REQUEST
+
+`GET at/transactions/id/{id}`
+
+## Get AT Transactions By Recipient
 
 ```shell
-GET at/transactions/recipients/{address}
+curl "http://127.0.0.1:9085/at/transactions/recipients/{address}"
+```
+
+```http
+GET at/transactions/recipients/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 > Response
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 ```json
 [
   {
@@ -202,16 +268,21 @@ GET at/transactions/recipients/{address}
 
 Returns the AT transactions for the given recipient's address.  
 
+### REQUEST
 
-## POST at
+`GET at/transactions/recipients/{address}`
+
+## Create AT
 
 ```shell
-POST at
+curl "http://127.0.0.1:9085/at"
+  -X POST
+  -d '{"creator":"","name":"","description":"","type":"","tags":"","fee":"","quantity":"","code":"","data":"","dpages":"","cspages":"","uspages":"","minActivationAmount":""}'
 ```
 
-> Format
-
-```json
+```http
+POST at HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "creator":"",
   "name":"",
@@ -230,8 +301,9 @@ POST at
 }
 ```
 
-Deploys an AT with the given details
+Deploys an AT with the given details.Returns the transaction when successful.
 
+`POST at`
 
 ### Errors
 
