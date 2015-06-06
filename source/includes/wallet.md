@@ -102,7 +102,7 @@ Returns true/false depending on the fact if the wallet was already locked and if
 ## Unlock Wallet
 
 ```shell
-curl http://127.0.0.1:9085/wallet/unlock
+curl "http://127.0.0.1:9085/wallet/unlock"
   -X POST
   -d password
 ```
