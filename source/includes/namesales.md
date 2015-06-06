@@ -46,7 +46,7 @@ Returns an array of all the namesales owned by a specific address in your wallet
 | 201 | Wallet does not exist. |
 | 202 | Address does not exist in wallet. |
 
-## GET Name Details
+## Get Sale Name Details
 
 ```shell
 GET namesales/{name}
