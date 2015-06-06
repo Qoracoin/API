@@ -53,12 +53,6 @@ GET names/{name} HTTP/1.1
 Host: 127.0.0.1/9085
 ```
 
-Returns details about the given name
-
-### REQUEST
-
-`GET names/{name}`
-
 > Response
 
 ```http
@@ -73,6 +67,13 @@ Content-Type: application/json
   "value": "http://qora.org"
 }
 ```
+
+Returns details about the given name
+
+### REQUEST
+
+`GET names/{name}`
+
 ### Errors
 
 | Error | Description |
