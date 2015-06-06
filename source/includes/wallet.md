@@ -52,7 +52,7 @@ Return the 32-byte long base58-encoded wallet seed.
 ## Wallet Synchronize
 
 ```shell
-GET wallet/synchronize
+curl http://127.0.0.1:9085/wallet/synchronize
 ```
 
 ```http
