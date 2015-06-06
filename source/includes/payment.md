@@ -1,11 +1,11 @@
 # Payment
 
-## POST payment
+## Post Payment
 
 ```shell
 curl "http://127.0.0.1/9085/payment"
   -X POST
-  -d {"amount":"10.05","fee":"1.000001","sender":"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"}
+  -d '{"amount":"10.05","fee":"1.000001","sender":"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"}'
 ```
 
 ```http
@@ -38,12 +38,12 @@ Returns the transaction in JSON when successful.
 | 201 | Wallet does not exist. |
 | 203 | Wallet is locked. |
 
-## POST namepayment
+## Post Name Payment
 
 ```shell
 curl http://127.0.0.1:9085/namepayment
   -X POST
-  -d {"amount": "10.05","fee": "1.000001","sender": "Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"qora"}
+  -d '{"amount": "10.05","fee": "1.000001","sender": "Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"qora"}'
 ```
 
 ```http

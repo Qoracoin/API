@@ -1,20 +1,38 @@
 # Names
 
-## GET names
+## Get Names
 
 ```shell
-GET names
+curl 'http://127.0.0.1:9085/names'
+```
+
+```http
+GET names HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of all the names owned by your accounts.
 
-## GET names/address/{address}
+### REQUEST
+
+`GET names`
+
+## Get Names By Address
 
 ```shell
-GET names/address/{address}
+curl http://127.0.0.1:9085/names/address/{address}
+```
+
+```http
+GET names/address/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns an array of all the names owned by a specific address in your wallet.
+
+### REQUEST
+
+`GET names/address/{address}`
 
 ### Errors
 
@@ -24,15 +42,29 @@ Returns an array of all the names owned by a specific address in your wallet.
 | 201 | Wallet does not exist. |
 | 202 | Address does not exist in wallet. |
 
-## GET names/{name}
+## Get Name Details
 
 ```shell
-GET names/{name}
+curl http://127.0.0.1:9085/names/{name}
+```
+
+```http
+GET names/{name} HTTP/1.1
+Host: 127.0.0.1/9085
 ```
 
 Returns details about the given name
 
+### REQUEST
+
+`GET names/{name}`
+
 > Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 
 ```json
 {
@@ -48,7 +80,7 @@ Returns details about the given name
 | 401 | Name does not exist. |
 
 
-## POST names
+## Register Name
 
 ```shell
 POST names
@@ -84,7 +116,7 @@ Returns the transaction in JSON when successful.
 | 404 | Name must be lower case. |
 
 
-## POST names/{name}
+## Update Name
 
 ```shell
 POST names/{name}
