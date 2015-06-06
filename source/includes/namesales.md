@@ -1,12 +1,20 @@
 # NameSales
 
-## GET namesales
+## Get Namesales
 
 ```shell
-GET namesales
+curl 'http://127.0.0.1:9085/namesales'
 ```
 
+```http
+GET namesales HTTP/1.1
+Host: 127.0.0.1:9085
+```
 Returns an array of all the namesales owned by your accounts.
+
+### REQUEST
+
+`GET namesales`
 
 ### Errors
 
@@ -14,13 +22,21 @@ Returns an array of all the namesales owned by your accounts.
 | --- | --- |
 | 201 | Wallet does not exist. |
 
-## GET namesales/address/{address}
+## Get Namesales By Address
 
 ```shell
-GET namesales/address/{address}
+curl "http://127.0.0.1:9085/namesales/address/{address}"
 ```
 
+```http
+GET namesales/address/{address} HTTP/1.1
+Host: 127.0.0.1:9085
+```
 Returns an array of all the namesales owned by a specific address in your wallet.
+
+### REQUEST
+
+`GET namesales/address/{address}`
 
 ### Errors
 
@@ -30,13 +46,22 @@ Returns an array of all the namesales owned by a specific address in your wallet
 | 201 | Wallet does not exist. |
 | 202 | Address does not exist in wallet. |
 
-## GET namesales/{name}
+## GET Name Details
 
 ```shell
 GET namesales/{name}
 ```
 
+```http
+GET namesales/{name} HTTP/1.1
+Host: 127.0.0.1:9085
+```
+
 Return details about the given name that is for sale.
+
+### REQUEST
+
+`GET namesales/{name}`
 
 ### Errors
 
@@ -44,13 +69,22 @@ Return details about the given name that is for sale.
 | --- | --- |
 | 410 | Name is not for sale. |
 
-## GET namesales/network
+## List Names
 
 ```shell
 GET namesales/network
 ```
 
+```http
+GET namesales/network HTTP/1.1
+Host: 127.0.0.1:9085
+```
 > Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 
 ```json
 [
@@ -63,25 +97,34 @@ Returns an array of all the names that are for sale.
 
 For performance this array only contains the keys of the names that are for sale and not the details.
 
+### REQUEST
 
-## POST namesales/{name}
+`GET namesales/network`
+
+## Sell A Name
 
 ```shell
-POST namesales/{name}
+curl "http://127.0.0.1:9085/namesales/{name}"
+  -X POST
+  -d '{"amount":"100","fee":"1.00001"}'
 ```
 
-Used to sell the given name.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
+```http
+POST namesales/{name} HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "amount": "100",
   "fee": "1.00001"
 }
 ```
+Used to sell the given name.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST namesales/{name}`
+
 ### Errors
 
 | Error | Description |
