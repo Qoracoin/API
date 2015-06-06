@@ -84,7 +84,7 @@
 </tbody></table>
 
 <h2 id="wallet-synchronize">Wallet Synchronize</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/wallet/synchronize
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet/synchronize"</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">wallet/synchronize</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
@@ -153,11 +153,11 @@
 
 <p>Returns true/false depending on the fact if the password is correct.</p>
 
-REQUEST</h3>
+<h3 id="request">REQUEST</h3>
 
 <p><code class="prettyprint">POST wallet/unlock</code></p>
 
-<h3 id="errors">Errors</h3>
+Errors</h3>
 
 <table><thead>
 <tr>
@@ -171,7 +171,7 @@ REQUEST</h3>
 </tr>
 </tbody></table>
 
-Create Wallet</h2>
+<h2 id="create-wallet">Create Wallet</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet"</span>
   -X POST
   -d <span class="o">{</span><span class="s2">"seed"</span>: <span class="s2">"FQgbSAm6swGbtqA3NE8PttijPhT4N3Ufh4bHFAkyVnQz"</span>,<span class="s2">"password"</span>: <span class="s2">"cookies"</span>,<span class="s2">"recover"</span>: <span class="nb">false</span>,<span class="s2">"amount"</span>: 10<span class="o">}</span>
