@@ -1436,7 +1436,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tbody></table>
 
 <h2 id="unlock-wallet">Unlock Wallet</h2>
-<pre class="highlight shell"><code>curl http://127.0.0.1:9085/wallet/unlock
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/wallet/unlock"</span>
   -X POST
   -d password
 </code></pre>
@@ -1486,7 +1486,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p>Creates a wallet using the given 32-byte long base58-encoded seed, password,recover flag and amount.</p>
 
-REQUEST</h3>
+<h3 id="request">REQUEST</h3>
 
 <p><code class="prettyprint">POST wallet</code></p>
 
