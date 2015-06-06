@@ -173,7 +173,7 @@ Returns the confirmed balance of the given address.
 | --- | --- |
 | 102 | Invalid address. |
 
-## GET Address Generating Balance
+## Get Address Generating Balance
 
 ```shell
 curl "http://127.0.0.1:9085/addresses/generatingbalance/{address}"
@@ -190,13 +190,22 @@ Return the generating balance of the given address.
 
 `GET addresses/generatingbalance/{address}`
 
-## GET addresses/assetbalance/{assetid}/{address}
+## Get Address Asset Balance
 
 ```shell
-GET addresses/assetbalance/{assetid}/{address}
+curl "http://127.0.0.1:9085/addresses/assetbalance/{assetid}/{address}"
+```
+
+```http
+GET addresses/assetbalance/{assetid}/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns the confirmed balance of the given asset ID and the given address.
+
+### REQUEST
+
+`GET addresses/assetbalance/{assetid}/{address}`
 
 ### Errors
 
@@ -205,15 +214,23 @@ Returns the confirmed balance of the given asset ID and the given address.
 | 102 | Invalid address. |
 | 601 | Invalid asset id. |
 
-## GET addresses/balance/{address}/{confirmation}
+## Calculate Address Balance
 
 ```shell
-GET addresses/balance/{address}/{confirmation}
+curl "http://http://127.0.0.1:9085/addresses/balance/{address}/{confirmation}"
 ```
 
+```http
+GET addresses/balance/{address}/{confirmation} Http/1.1
+Host: 127.0.0.1:9085
+```
 Calculates the balance of the given address after the given confirmations.
 
 0 confirmations can only be used on addresses that exist in your wallet.
+
+### REQUEST
+
+`GET addresses/balance/{address}/{confirmation}`
 
 ### Errors
 
@@ -221,28 +238,51 @@ Calculates the balance of the given address after the given confirmations.
 | --- | --- |
 | 102 | Invalid address. |
 
-## GET addresses/publickey/{address}
+## Get Address Public key
+
 ```shell
-GET addresses/publickey/{address}
+curl "http://127.0.0.1:9085/addresses/publickey/{address}"
+```
+
+```http
+GET addresses/publickey/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 ```
 
 Returns the public key of the given address
 
-###
+### REQUEST
+
+`GET addresses/publickey/{address}`
+
+### Errors
 
 | Error | Description |
 | --- | --- |
 | 102 | Invalid address. |
 
-## POST addresses/sign/{address}
+## Sign Message
 
 ```shell
-POST addresses/sign/{address}
+curl http://127.0.0.1:9085/addresses/sign/{address}
+  -X POST
+  -d test
+```
+
+```http
+POST addresses/sign/{address} HTTP/1.1
+Host: 127.0.0.1:9085
+test
 ```
 
 Signs the  given message using the given address.
 
-> Format
+> Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
 
 ```json
 {
@@ -251,6 +291,11 @@ Signs the  given message using the given address.
   "signature": "2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"
 }
 ```
+
+### REQUEST
+
+`POST addresses/sign/{address}`
+
 ### Errors
 
 | Error | Description |
@@ -260,23 +305,30 @@ Signs the  given message using the given address.
 | 202 | Address does not exist in wallet. |
 | 203 | Wallet is locked. |
 
-## POST addresses/verify/{address}
+## Verify Message
 
 ```shell
-POST addresses/verify/{address}
+curl http://127.0.0.1:9085/addresses/verify/{address}
+  -X POST
+  -d '{"message": "test","publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3","signature":"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"}'
 ```
 
-Verifies if the given message was signed by the given address. Returns true/false.
-
-> Format
-
-```json
+```http
+POST addresses/verify/{address} HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "message": "test",
   "publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3",
   "signature": "2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"
 }
 ```
+
+Verifies if the given message was signed by the given address. Returns true/false.
+
+### REQUEST
+
+`POST addresses/verify/{address}`
+
 ### Errors
 
 | Error | Description |
