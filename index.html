@@ -1117,7 +1117,7 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-address-generating-balance">GET Address Generating Balance</h2>
+<h2 id="get-address-generating-balance">Get Address Generating Balance</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/generatingbalance/{address}"</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/generatingbalance/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1130,11 +1130,18 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 
 <p><code class="prettyprint">GET addresses/generatingbalance/{address}</code></p>
 
-<h2 id="get-addresses/assetbalance/{assetid}/{address}">GET addresses/assetbalance/{assetid}/{address}</h2>
-<pre class="highlight shell"><code>GET addresses/assetbalance/<span class="o">{</span>assetid<span class="o">}</span>/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-address-asset-balance">Get Address Asset Balance</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/assetbalance/{assetid}/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/assetbalance/{assetid}/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns the confirmed balance of the given asset ID and the given address.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/assetbalance/{assetid}/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1154,13 +1161,20 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/balance/{address}/{confirmation}">GET addresses/balance/{address}/{confirmation}</h2>
-<pre class="highlight shell"><code>GET addresses/balance/<span class="o">{</span>address<span class="o">}</span>/<span class="o">{</span>confirmation<span class="o">}</span>
+<h2 id="calculate-address-balance">Calculate Address Balance</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://http://127.0.0.1:9085/addresses/balance/{address}/{confirmation}"</span>
 </code></pre>
+<pre class="highlight http"><code><span class="err">GET addresses/balance/{address}/{confirmation} Http/1.1
+Host: 127.0.0.1:9085
+</span></code></pre>
 
 <p>Calculates the balance of the given address after the given confirmations.</p>
 
 <p>0 confirmations can only be used on addresses that exist in your wallet.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/balance/{address}/{confirmation}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1176,10 +1190,20 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="get-addresses/publickey/{address}">GET addresses/publickey/{address}<pre class="highlight shell"><code>GET addresses/publickey/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="get-address-public-key">Get Address Public key</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/addresses/publickey/{address}"</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">addresses/publickey/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
 </code></pre>
 
 <p>Returns the public key of the given address</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">GET addresses/publickey/{address}</code></p>
+
+<h3 id="errors">Errors</h3>
 
 <table><thead>
 <tr>
@@ -1193,21 +1217,34 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-addresses/sign/{address}">POST addresses/sign/{address}</h2>
-<pre class="highlight shell"><code>POST addresses/sign/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="sign-message">Sign Message</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses/sign/<span class="o">{</span>address<span class="o">}</span>
+  -X POST
+  -d <span class="nb">test</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">addresses/sign/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">test</span>
 </code></pre>
 
 <p>Signs the  given message using the given address.</p>
 
 <blockquote>
-<p>Format</p>
+<p>Response</p>
 </blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"publickey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST addresses/sign/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1235,21 +1272,25 @@ You can execute this command by clicking here: <a href="http://127.0.0.1:9085/ad
 </tr>
 </tbody></table>
 
-<h2 id="post-addresses/verify/{address}">POST addresses/verify/{address}</h2>
-<pre class="highlight shell"><code>POST addresses/verify/<span class="o">{</span>address<span class="o">}</span>
+<h2 id="verify-message">Verify Message</h2>
+<pre class="highlight shell"><code>curl http://127.0.0.1:9085/addresses/verify/<span class="o">{</span>address<span class="o">}</span>
+  -X POST
+  -d <span class="s1">'{"message": "test","publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3","signature":"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"}'</span>
+</code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">addresses/verify/{address}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "message": "test",</span>
+<span class="s">  "publickey": "6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3",</span>
+<span class="s">  "signature": "2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"</span>
+<span class="s">}</span>
 </code></pre>
 
 <p>Verifies if the given message was signed by the given address. Returns true/false.</p>
 
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"publickey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6cWtyccawscvHhE5woPaLbDUc6qFaH7b7YuDJFrBvgJ3"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2XuAEoUG2GmWJ8s5ZMZMK7csQ1nfHcqL5JYm3JBqetUAZKeT9mu7mSKYYMjLQoLBr5DqLCfaKXLQJnbzCLYCfC21"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST addresses/verify/{address}</code></p>
 
 <h3 id="errors">Errors</h3>
 
