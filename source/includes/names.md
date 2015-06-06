@@ -20,7 +20,7 @@ Returns an array of all the names owned by your accounts.
 ## Get Names By Address
 
 ```shell
-curl http://127.0.0.1:9085/names/address/{address}
+curl 'http://127.0.0.1:9085/names/address/{address}'
 ```
 
 ```http
@@ -45,7 +45,7 @@ Returns an array of all the names owned by a specific address in your wallet.
 ## Get Name Details
 
 ```shell
-curl http://127.0.0.1:9085/names/{name}
+curl 'http://127.0.0.1:9085/names/{name}'
 ```
 
 ```http
@@ -83,16 +83,14 @@ Content-Type: application/json
 ## Register Name
 
 ```shell
-POST names
+curl "http://127.0.0.1/9085/names"
+  -X POST
+  -d '{"name": "qora","value": "http://qora.org","registrant": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5","fee": "1.00001"}'
 ```
 
-Register a new name.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
+```http
+POST names HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "name": "qora",
   "value": "http://qora.org",
@@ -100,6 +98,14 @@ Returns the transaction in JSON when successful.
   "fee": "1.00001"
 }
 ```
+Register a new name.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST names`
+
 ### Errors
 
 | Error | Description |
@@ -119,22 +125,29 @@ Returns the transaction in JSON when successful.
 ## Update Name
 
 ```shell
-POST names/{name}
+curl "http://127.0.0.1:9085/names/{name}"
+  -X POST
+  -d '{"newvalue":"http://qora.net","newowner":"QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5","fee":"1.00001"}'
 ```
 
-Updates an existing name.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
+```http
+POST names/{name} HTTP/1.1
+Host: 127.0.0.1/9085
 {
   "newvalue": "http://qora.net",
   "newowner": "QVeHoptRAeLj5DqGq2TKHVL4w51KFGS5R5",
   "fee": "1.00001"
 }
 ```
+
+Updates an existing name.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST names/{name}`
+
 ### Errors
 
 | Error | Description |
