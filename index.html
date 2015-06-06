@@ -2529,26 +2529,30 @@ REQUEST</h3>
 
           <h1 id="arbitrary-transactions">Arbitrary Transactions</h1>
 
-<h2 id="post-arbitrarytransactions">POST arbitrarytransactions</h2>
-<pre class="highlight shell"><code>POST arbitrarytransactions
+<h2 id="create-arbitrary-transaction">Create Arbitrary Transaction</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://127.0.0.1:9085/arbitrarytransactions"</span>
+  -X POST
+  -d <span class="s1">'{"creator":"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6","data":"4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA","service":555,"fee":"1.00001"}'</span>
 </code></pre>
-
-<blockquote>
-<p>Format</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="mi">555</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00001"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">arbitrarytransactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">127.0.0.1:9085</span>
+<span class="s">{</span>
+<span class="s">  "creator": "QNbA69dbnmwqJHLQeS9v63hSLZXXGkmtC6",</span>
+<span class="s">  "data": "4GFHMAo9fmbUq7usopgntwUfAiLtpL98K6QCosAJsqQmY95tfd5KoUaKu34v6Qwp7RtYEhobCx7LVi7aYbbtpzfA",</span>
+<span class="s">  "service": 555,</span>
+<span class="s">  "fee": "1.00001"</span>
+<span class="s">}</span>
+</code></pre>
 
 <p>Used to send an arbitrary transaction.</p>
 
 <p>The data of the arbitrary transaction must be base58 encoded and must be between 1-4000 bytes.</p>
 
 <p>Returns the transaction in JSON when successful.</p>
+
+<h3 id="request">REQUEST</h3>
+
+<p><code class="prettyprint">POST arbitrarytransactions</code></p>
 
 <h3 id="errors">Errors</h3>
 
