@@ -3,16 +3,14 @@
 ## POST payment
 
 ```shell
-POST payment
+curl "http://127.0.0.1/9085/payment"
+  -X POST
+  -d {"amount":"10.05","fee":"1.000001","sender":"Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"}
 ```
 
-Send a new payment using the given data.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
+```http
+POST payment HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "amount": "10.05",
   "fee": "1.000001",
@@ -20,6 +18,14 @@ Returns the transaction in JSON when successful.
   "recipient": "QhMaXFowsVqdAhvU2xkcLzuVaH5VDyEWsS"
 }
 ```
+Send a new payment using the given data.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST payment`
+
 ### Errors
 
 | Error | Description |
@@ -35,16 +41,14 @@ Returns the transaction in JSON when successful.
 ## POST namepayment
 
 ```shell
-POST namepayment
+curl http://127.0.0.1:9085/namepayment
+  -X POST
+  -d {"amount": "10.05","fee": "1.000001","sender": "Qdxn4qW8kiPUiBnBSy9mbqMGBrBHRhK2JM","recipient":"qora"}
 ```
 
-Send a new namepayment using the given data.
-
-Returns the transaction in JSON when successful.
-
-> Format
-
-```json
+```http
+POST namepayment HTTP/1.1
+Host: 127.0.0.1:9085
 {
   "amount": "10.05",
   "fee": "1.000001",
@@ -52,6 +56,14 @@ Returns the transaction in JSON when successful.
   "recipient": "qora"
 }
 ```
+Send a new namepayment using the given data.
+
+Returns the transaction in JSON when successful.
+
+### REQUEST
+
+`POST namepayment`
+
 ### Errors
 
 | Error | Description |
