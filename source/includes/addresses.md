@@ -327,11 +327,8 @@ Host: 127.0.0.1:9085
 
 Verifies if the given message was signed by the given address. Returns true or false.
 
-<!-- ### REQUEST -->
 ### REQUEST
 
-<!-- `POST addresses/verify/{address}` -->
-`POST addresses/verify/{address}`
 `POST addresses/verify/{address}`
 
 ### Errors
