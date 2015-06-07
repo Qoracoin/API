@@ -10,7 +10,6 @@ toc_footers:
 
 includes:
   - introduction
-  - instructions
   - qora
   - seed
   - peers
