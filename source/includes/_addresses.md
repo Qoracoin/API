@@ -190,7 +190,7 @@ Return the generating balance of the given address.
 
 `GET addresses/generatingbalance/{address}`
 
-## Get Address Asset Balance
+## Get Asset Balance By Address
 
 ```shell
 curl "http://127.0.0.1:9085/addresses/assetbalance/{assetid}/{address}"
